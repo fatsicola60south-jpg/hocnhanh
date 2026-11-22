@@ -50,7 +50,7 @@
 
     .container { padding: 10px; max-width: 500px; margin: 0 auto; }
 
-    /* MAIN NAV 3 PHÂN HỆ: PHA CHẾ - NẤU TOPPING - HỌC TOPPING */
+    /* MAIN NAV 3 PHÂN HỆ */
     .module-nav {
       display: flex; background: #e2e8f0; border-radius: 12px; padding: 3px; margin-bottom: 8px; gap: 3px;
     }
@@ -308,10 +308,12 @@
 
   <script>
     // BẢNG TOPPING CHUẨN CẬP NHẬT CHÍNH XÁC:
+    // - Pudding trứng 120gr / 2 vá
+    // - Mứt nho 50gr / 1 vá
+    // - Pudding ss 200gr / hủ
     // - 2 vá Ngũ sắc, Bánh vuông, Củ năng = 100g
     // - 2 vá Đường đen = 120g
     // - 1 vá TC Khoai môn = 50g
-    // - Pudding trứng 120gr, Pudding ss 200gr/hủ, Mứt nho 50gr
     const TOPPINGS_REF = [
       { id: 1, name: "Trân châu đường đen", val: "120g / 2 vá" },
       { id: 2, name: "Trân châu ngũ sắc", val: "100g / 2 vá" },
@@ -319,9 +321,9 @@
       { id: 4, name: "Trân châu củ năng", val: "100g / 2 vá" },
       { id: 5, name: "TC Khoai môn", val: "50g / 1 vá" },
       { id: 6, name: "Hạt sen", val: "50g / 1 vá" },
-      { id: 7, name: "Pudding trứng", val: "120gr" },
+      { id: 7, name: "Pudding trứng", val: "120gr / 2 vá" },
       { id: 8, name: "Pudding ss (Sương sáo)", val: "200gr / hủ" },
-      { id: 9, name: "Mứt nho", val: "50gr" },
+      { id: 9, name: "Mứt nho", val: "50gr / 1 vá" },
       { id: 10, name: "Trân châu 3Q Trắng", val: "45g / 1 vá" },
       { id: 11, name: "Thạch Q", val: "40g / 1 vá" },
       { id: 12, name: "Thủy tinh củ năng", val: "40g / 1 vá" },
@@ -820,22 +822,22 @@
         actionClass: "badge-shake",
         ice: "Bình thường vạch [600]ml • Ít đá [300]ml • Không đá ca [300]ml",
         tableM: [
-          { s: "100%", pp: "[50]g mứt nho + [30]cc sốt + [Đầy ly]", ca: "[300] / [0]ml" },
+          { s: "100%", pp: "[50]g mứt nho ([1] vá) + [30]cc sốt + [Đầy ly]", ca: "[300] / [0]ml" },
           { s: "70%", pp: "50g mứt nho + 30cc sốt + Vạch [500]ml", ca: "[200] / [100]ml" },
           { s: "50%", pp: "50g mứt nho + 30cc sốt + Vạch [350]ml", ca: "[150] / [150]ml" },
           { s: "30%", pp: "50g mứt nho + 30cc sốt + Vạch [200]ml", ca: "[100] / [200]ml" },
           { s: "0%", pp: "50g mứt nho + 30cc sốt + [Đầy lạt]", ca: "[0] / [300]ml" }
         ],
         steps: [
-          "Cho 50g mứt nho vào ly PP",
+          "Cho 50g mứt nho (1 vá) vào ly PP",
           "Dùng chày dầm mứt nho ở mức vừa phải",
           "Thêm 30cc sốt nho",
           "Cho đá vào ly PP",
           "Rót 300ml trà Ô long",
           "◎ Ra món lưu ý lắc đều"
         ],
-        notes: "Chỉ có ly M. Dùng chày dầm mứt nho ở mức vừa phải.",
-        hack: "💡 MẸO NHO: 50g mứt nho (dầm vừa) + 30cc sốt nho. Trà Ô long 300ml. Nhớ lắc đều!"
+        notes: "Chỉ có ly M. Dùng 1 vá mứt nho (50g) và dùng chày dầm ở mức vừa phải.",
+        hack: "💡 MẸO NHO: 1 vá mứt nho (50g dầm vừa) + 30cc sốt nho. Trà Ô long 300ml. Nhớ lắc đều!"
       },
 
       // 19. HỒNG TRÀ BÍ ĐAO (MIX 6:4)
@@ -943,7 +945,7 @@
         hack: "💡 MẸO: 2 É (60g) + 1 Aiyu (40g). Trà xí muội: 300ml (M) / 400ml (L). Cố định đường!"
       },
 
-      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX
+      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX (ĐÃ ĐỔI: XÍ MUỘI CHO TRƯỚC BÍ ĐAO)
       {
         id: "xi_muoi_bidao",
         name: "Trà Xí Muội Bí Đao (Mix)",
@@ -952,20 +954,20 @@
         actionClass: "badge-shake",
         ice: "Đá đầy ly • Ít đá vạch [600]ml • [Cấm nhiều đá]",
         tableM: [
-          { s: "100%", pp: "2 vá É ([60]g) + 1 vá Aiyu ([40]g) + [150]ml Bí + [150]ml Xí Muội", ca: "Cố định đường" }
+          { s: "100%", pp: "2 vá É ([60]g) + 1 vá Aiyu ([40]g) + [150]ml Xí Muội + [150]ml Bí", ca: "Cố định đường" }
         ],
         tableL: [
-          { s: "100%", pp: "2 vá É ([60]g) + 1 vá Aiyu ([40]g) + [200]ml Bí + [200]ml Xí Muội", ca: "Cố định đường" }
+          { s: "100%", pp: "2 vá É ([60]g) + 1 vá Aiyu ([40]g) + [200]ml Xí Muội + [200]ml Bí", ca: "Cố định đường" }
         ],
         steps: [
           "2 vá Hạt É (60g) + 1 vá Thạch Aiyu (40g) vào ly",
-          "Rót Trà Bí Đao (150ml M / 200ml L)",
           "Rót Trà Xí Muội (150ml M / 200ml L)",
+          "Rót Trà Bí Đao (150ml M / 200ml L)",
           "Cho đá vào ly (CẤM nhiều đá)",
           "◎ Lắc đều trước khi ra món"
         ],
-        notes: "Cố định 100% độ ngọt. CẤM: Thức uống không thể cho nhiều đá.",
-        hack: "💡 MẸO: Tỉ lệ 5:5 đều nhau! M = 150/150ml. L = 200/200ml. CẤM NHIỀU ĐÁ!"
+        notes: "Cố định 100% độ ngọt. Quy trình chuẩn: Rót Trà Xí Muội trước rồi mới rót Trà Bí Đao. CẤM: Thức uống không thể cho nhiều đá.",
+        hack: "💡 MẸO: XÍ MUỘI CHO TRƯỚC, BÍ ĐAO CHO SAU! Tỉ lệ 5:5 đều nhau! M = 150/150ml. L = 200/200ml. CẤM NHIỀU ĐÁ!"
       },
 
       // 24. TRÀ XÍ MUỘI Ô LONG MIX
@@ -1208,7 +1210,7 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING (TRANG HỌC TOPPING DUY NHẤT)
+    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING (TRANG HỌC TOPPING ĐỘC LẬP)
     // ==========================================
     const TOPPING_STUDY = [
       {
@@ -1223,11 +1225,11 @@
           { s: "TC Ngũ sắc", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
           { s: "Bánh vuông Đ.Đen", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
           { s: "Trân châu Củ năng", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
+          { s: "Pudding trứng", pp: "[120]gr / [2] vá", ca: "2 vá 120gr" },
+          { s: "Mứt nho", pp: "[50]gr / [1] vá", ca: "1 vá 50gr dầm vừa" },
+          { s: "Pudding ss", pp: "[200]gr / hủ", ca: "1 hủ 200gr" },
           { s: "TC Khoai môn", pp: "[50]g / [1] vá", ca: "1 vá 50gr" },
           { s: "Hạt sen", pp: "[50]g / [1] vá", ca: "1 vá 50gr" },
-          { s: "Pudding trứng", pp: "[120]gr", ca: "120gr" },
-          { s: "Pudding ss (Sương sáo)", pp: "[200]gr / hủ", ca: "1 hủ 200gr" },
-          { s: "Mứt nho", pp: "[50]gr", ca: "50gr dầm vừa" },
           { s: "Trân châu 3Q Trắng", pp: "[45]g / [1] vá", ca: "1 vá 45gr" },
           { s: "Thạch Q", pp: "[40]g / [1] vá", ca: "1 vá 40gr" },
           { s: "Thủy tinh củ năng", pp: "[40]g / [1] vá", ca: "1 vá 40gr" },
@@ -1240,14 +1242,14 @@
         ],
         steps: [
           "Nhóm 2 vá (100g): Ngũ sắc, Bánh vuông, Trân châu củ năng",
-          "Nhóm 2 vá (120g & 80g): TCĐĐ 120g, Thạch Đào/Dừa/Sương sáo/Aiyu 80g",
-          "Nhóm 1 vá (50g): Hạt sen, Trân châu khoai môn",
+          "Nhóm 2 vá (120g & 80g): TCĐĐ 120g, Pudding trứng 120g, Thạch Đào/Dừa/Sương sáo/Aiyu 80g",
+          "Nhóm 1 vá (50g): Hạt sen, TC khoai môn, Mứt nho 50g",
           "Nhóm 1 vá (40g & 45g): Thạch Q 40g, TT Củ năng 40g, 3Q Trắng 45g",
-          "Nhóm Hủ & Gram riêng: Pudding trứng 120g, Pudding ss 200g/hủ, Mứt nho 50g",
+          "Nhóm Hủ & Gram riêng: Pudding ss 200g/hủ, Khoai môn nghiền 80g/120g",
           "Nhóm Miếng / Viên / Béo: Đào 5 miếng (25g), Kem vani 1 viên (60g), Kem cheese 60g"
         ],
         notes: "Múc đúng số vá và kiểm tra định lượng gram để đảm bảo chuẩn vị và cost món.",
-        hack: "💡 MẸO NHỚ: 2 vá 100g = Ngũ sắc, Bánh vuông, Củ năng. 2 vá 120g = TCĐĐ. 1 vá 50g = Sen, TC khoai môn. Pudding trứng 120g, Pudding ss 200g/hủ, Mứt nho 50g!"
+        hack: "💡 MẸO NHỚ: 2 vá 100g = Ngũ sắc, Bánh vuông, Củ năng. 2 vá 120g = TCĐĐ, Pudding trứng. 1 vá 50g = Sen, TC khoai môn, Mứt nho. Pudding ss 200g/hủ!"
       }
     ];
 
