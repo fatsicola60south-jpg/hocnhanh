@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Bản quyền của PHÁT - SOP Ngô Gia Mobile</title>
+  <title>Bản quyền của PHÁT - Đại Cẩm Nang SOP & Nấu Trân Châu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -50,7 +50,17 @@
 
     .container { padding: 10px; max-width: 500px; margin: 0 auto; }
 
-    /* CONTROLS: GỌN GÀNG TRÊN 1 DÒNG */
+    /* MAIN NAV 3 PHÂN HỆ: PHA CHẾ - NẤU TOPPING - HỌC TOPPING */
+    .module-nav {
+      display: flex; background: #e2e8f0; border-radius: 12px; padding: 3px; margin-bottom: 8px; gap: 3px;
+    }
+    .module-tab {
+      flex: 1; padding: 7px 3px; border: none; border-radius: 9px; font-size: 0.72rem; font-weight: 800;
+      color: #475569; background: transparent; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 3px; transition: 0.15s;
+    }
+    .module-tab.active { background: white; color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
+
+    /* CONTROLS */
     .top-controls {
       background: white; border-radius: 12px; padding: 8px 10px; margin-bottom: 10px;
       border: 1px solid var(--border); box-shadow: 0 2px 6px rgba(0,0,0,0.02);
@@ -118,7 +128,7 @@
     td { padding: 5px 4px; border: 1px solid #e2e8f0; font-weight: 700; color: #1e293b; height: 32px; vertical-align: middle; }
     tr:nth-child(even) td { background: #fbfdff; }
 
-    /* Ô CHE SỐ & Ô ĐỤC LỖ CỐ ĐỊNH CHIỀU CAO - THẲNG TẮP */
+    /* Ô CHE SỐ & Ô ĐỤC LỖ */
     .val-highlight { font-weight: 800; color: var(--primary); }
     
     .maskable {
@@ -148,7 +158,7 @@
     .cloze-input.correct { background: #dcfce7 !important; border-color: #10b981 !important; color: #065f46 !important; }
     .cloze-input.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
 
-    /* KHỐI KÉO THẢ QUY TRÌNH (DRAG-AND-DROP STEP SORTER) */
+    /* KHỐI KÉO THẢ QUY TRÌNH */
     .steps-container { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
     .step-item {
       background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 7px 8px;
@@ -225,16 +235,29 @@
         </div>
       </div>
       <button class="btn-top-topping" onclick="openToppingModal()">
-        <i class="fa-solid fa-boxes-stacked"></i> <span>20 Topping</span>
+        <i class="fa-solid fa-boxes-stacked"></i> <span>Topping Chuẩn</span>
       </button>
     </div>
   </header>
 
   <div class="container">
     
+    <!-- THANH CHUYỂN 3 PHÂN HỆ: PHA CHẾ - NẤU TOPPING - HỌC TOPPING -->
+    <div class="module-nav">
+      <button class="module-tab active" id="tab-module-drink" onclick="switchModule('drink')">
+        <i class="fa-solid fa-mug-hot"></i> <span>Pha Chế (27)</span>
+      </button>
+      <button class="module-tab" id="tab-module-cook" onclick="switchModule('cook')">
+        <i class="fa-solid fa-fire-burner"></i> <span>Nấu (5)</span>
+      </button>
+      <button class="module-tab" id="tab-module-topping" onclick="switchModule('topping')">
+        <i class="fa-solid fa-boxes-stacked"></i> <span>Học Topping</span>
+      </button>
+    </div>
+
     <!-- THANH CHỌN MÓN & 2 NÚT THAO TÁC GỌN GÀNG -->
     <div class="top-controls">
-      <select id="drink-selector" class="search-select" onchange="jumpToDrink(this.value)"></select>
+      <select id="drink-selector" class="search-select" onchange="jumpToItem(this.value)"></select>
       
       <div class="tools-row">
         <button class="tool-btn" id="btn-toggle-blind" onclick="toggleMode('blind')">
@@ -262,16 +285,16 @@
 
   <!-- FOOTER -->
   <div class="bottom-bar">
-    <button class="nav-btn nav-btn-prev" onclick="navDrink(-1)"><i class="fa-solid fa-arrow-left"></i> Trước</button>
+    <button class="nav-btn nav-btn-prev" onclick="navItem(-1)"><i class="fa-solid fa-arrow-left"></i> Trước</button>
     <div class="nav-counter" id="card-counter">1 / 27</div>
-    <button class="nav-btn nav-btn-next" onclick="navDrink(1)">Tiếp <i class="fa-solid fa-arrow-right"></i></button>
+    <button class="nav-btn nav-btn-next" onclick="navItem(1)">Tiếp <i class="fa-solid fa-arrow-right"></i></button>
   </div>
 
-  <!-- MODAL BẢNG 20 TOPPING -->
+  <!-- MODAL BẢNG TOPPING ĐÃ CẬP NHẬT 100% SỐ LIỆU MỚI -->
   <div class="modal-overlay" id="topping-modal" onclick="closeModalOnOverlay(event)">
     <div class="modal-box">
       <div class="modal-header">
-        <div class="modal-title"><i class="fa-solid fa-boxes-stacked" style="color:var(--primary);"></i> 20+ Định Lượng Topping Chuẩn</div>
+        <div class="modal-title"><i class="fa-solid fa-boxes-stacked" style="color:var(--primary);"></i> Định Lượng Topping Chuẩn Thực Tế</div>
         <button class="btn-close-modal" onclick="closeToppingModal()">✕</button>
       </div>
       <div class="table-wrap">
@@ -284,36 +307,63 @@
   </div>
 
   <script>
-    // 20 TOPPING CHUẨN KÈM CÔNG THỨC MỚI BÁT BẢO
+    // BẢNG TOPPING CHUẨN CẬP NHẬT CHÍNH XÁC:
+    // - 2 vá Ngũ sắc, Bánh vuông, Củ năng = 100g
+    // - 2 vá Đường đen = 120g
+    // - 1 vá TC Khoai môn = 50g
+    // - Pudding trứng 120gr, Pudding ss 200gr/hủ, Mứt nho 50gr
     const TOPPINGS_REF = [
-      { id: 1, name: "Pudding trứng", val: "100g / 1 hủ" },
-      { id: 2, name: "Trân châu đường đen", val: "120g / 2 vá" },
-      { id: 3, name: "TC hoàng kim baby", val: "100g / 2 vá" },
-      { id: 4, name: "TC Khoai môn", val: "50g / 1 vá" },
-      { id: 5, name: "Hạt sen", val: "50g / 1 vá" },
-      { id: 6, name: "3Q Trắng", val: "45g / 1 vá" },
-      { id: 7, name: "Thạch Q", val: "40g / 1 vá" },
-      { id: 8, name: "Thủy tinh lúa mạch", val: "40g / 1 vá" },
-      { id: 9, name: "Thủy tinh củ năng", val: "40g / 1 vá" },
-      { id: 10, name: "Khoai môn nghiền", val: "80g / 1 vá (120g / 1.5 viên)" },
-      { id: 11, name: "Thạch đào", val: "80g / 2 vá (45g / 1 vá Trà đào)" },
-      { id: 12, name: "Thạch dừa nguyên vị", val: "80g / 2 vá (40g Bát bảo)" },
-      { id: 13, name: "Thạch sương sáo", val: "80g / 2 vá (40g Bát bảo)" },
-      { id: 14, name: "Thạch Aiyu", val: "80g / 2 vá (40g Xí muội)" },
-      { id: 15, name: "Hạt É", val: "60g / 2 vá" },
-      { id: 16, name: "Kem vani", val: "60g / 1 viên" },
-      { id: 17, name: "Đào Miếng", val: "25g / 5 miếng" },
-      { id: 18, name: "Thạch sữa viên", val: "8 viên" },
-      { id: 19, name: "Thạch sương sáo viên", val: "8 viên" },
-      { id: 20, name: "Kem cheese", val: "60 gram" },
-      { id: 21, name: "Thạch sợi lá dứa", val: "70g / 2 vá" },
-      { id: 22, name: "Bánh Vuông Đ.Đen (MỚI)", val: "25g / nửa vá" },
-      { id: 23, name: "TC Củ Năng (MỚI)", val: "25g / nửa vá" }
+      { id: 1, name: "Trân châu đường đen", val: "120g / 2 vá" },
+      { id: 2, name: "Trân châu ngũ sắc", val: "100g / 2 vá" },
+      { id: 3, name: "Bánh vuông đường đen", val: "100g / 2 vá" },
+      { id: 4, name: "Trân châu củ năng", val: "100g / 2 vá" },
+      { id: 5, name: "TC Khoai môn", val: "50g / 1 vá" },
+      { id: 6, name: "Hạt sen", val: "50g / 1 vá" },
+      { id: 7, name: "Pudding trứng", val: "120gr" },
+      { id: 8, name: "Pudding ss (Sương sáo)", val: "200gr / hủ" },
+      { id: 9, name: "Mứt nho", val: "50gr" },
+      { id: 10, name: "Trân châu 3Q Trắng", val: "45g / 1 vá" },
+      { id: 11, name: "Thạch Q", val: "40g / 1 vá" },
+      { id: 12, name: "Thủy tinh củ năng", val: "40g / 1 vá" },
+      { id: 13, name: "Khoai môn nghiền", val: "80g / 1 vá (120g / 1.5v)" },
+      { id: 14, name: "Thạch đào", val: "80g / 2 vá (45g Trà đào)" },
+      { id: 15, name: "Thạch dừa nguyên vị", val: "80g / 2 vá (40g Bát bảo)" },
+      { id: 16, name: "Thạch sương sáo", val: "80g / 2 vá (40g Bát bảo)" },
+      { id: 17, name: "Thạch Aiyu", val: "80g / 2 vá (40g Xí muội)" },
+      { id: 18, name: "Hạt É", val: "60g / 2 vá" },
+      { id: 19, name: "Kem vani", val: "60g / 1 viên" },
+      { id: 20, name: "Đào Miếng", val: "25g / 5 miếng" },
+      { id: 21, name: "Kem cheese", val: "60 gram" }
     ];
 
-    // TOÀN BỘ 27 CÔNG THỨC CHUẨN XÁC ĐƯỢC THIẾT KẾ GỌN GÀNG CHO ĐIỆN THOẠI
+    // ==========================================
+    // PHÂN HỆ 1: KHO CÔNG THỨC PHA CHẾ (27 MÓN)
+    // ==========================================
     const DRINKS = [
-      // 1. TRÀ ĐƠN
+      // 1. TRÀ SỮA UYÊN ƯƠNG (MỚI)
+      {
+        id: "ts_uyen_uong",
+        name: "Trà Sữa Uyên Ương (MỚI)",
+        sizes: "Chỉ có Ly M (700cc)",
+        action: "[Lắc đều]",
+        actionClass: "badge-shake",
+        ice: "Bình thường: đầy ly PP • Ít đá: vạch [600]ml • [Cấm nhiều đá]",
+        tableM: [
+          { s: "100%", pp: "[40]cc kem béo + [200]ml Bí Đao + [110]ml Hồng Trà ngọt", ca: "Đong ca rồi rót vào ly" },
+          { s: "70%", pp: "[40]cc kem béo + [200]ml Bí Đao + [60]ml ngọt / [50]ml lạt", ca: "Chỉ có 2 mức: 100% & 70%" }
+        ],
+        steps: [
+          "Cho 40cc Kem béo vào ly PP",
+          "Rót 200ml Trà Bí Đao vào ly PP",
+          "Rót 110ml Hồng Trà Đài Loan vào ly (theo mức đường)",
+          "Cho đá theo mức yêu cầu (CẤM nhiều đá)",
+          "◎ Lắc đều trước khi ra món (Có TCĐĐ: kem béo giảm 10cc, lắc nhẹ)"
+        ],
+        notes: "Ghi chú: Đong trà bằng ca định lượng rồi rót vào ly PP. Thức uống không thể cho nhiều đá. Có Trân châu Đường Đen, kem béo giảm 10cc (còn 30cc), ra món lắc nhẹ.",
+        hack: "💡 MẸO UYÊN ƯƠNG: 40cc kem béo + 200ml Bí Đao + 110ml Hồng Trà (100%: 110ml ngọt; 70%: 60ml ngọt / 50ml lạt). CÓ TCĐĐ GIẢM 10CC KEM BÉO & LẮC NHẸ!"
+      },
+
+      // 2. TRÀ ĐƠN
       {
         id: "tra_don",
         name: "Trà Đơn (Hồng / Xanh / Ô Long)",
@@ -345,7 +395,7 @@
         hack: "💡 MẸO VẠCH LY PP: M là 500-350-200. L là 700-500-300. Ca ít đá: M là 350ml, L là 500ml!"
       },
 
-      // 2. HỒNG TRÀ KEM TƯƠI
+      // 3. HỒNG TRÀ KEM TƯƠI
       {
         id: "hong_tra_kem",
         name: "Hồng Trà Kem Tươi",
@@ -370,7 +420,7 @@
         hack: "💡 MẸO: Trà y hệt Trà Đơn Ly M. Chỉ cần múc 1 viên kem vani 60g lên trên rồi đậy nắp!"
       },
 
-      // 3. TRÀ CHANH
+      // 4. TRÀ CHANH
       {
         id: "tra_chanh",
         name: "Trà Chanh (Hồng / Xanh Chanh)",
@@ -404,7 +454,7 @@
         hack: "💡 MẸO CHANH & ĐƯỜNG: Ly M là '20 - 10'. Ly L là '25 - 15'. Cả 2 size đều 2 lát chanh!"
       },
 
-      // 4. TRÀ SỮA ĐÀI LOAN / Ô LONG
+      // 5. TRÀ SỮA ĐÀI LOAN / Ô LONG
       {
         id: "tra_sua",
         name: "Trà Sữa Đài Loan / Ô Long",
@@ -436,7 +486,7 @@
         hack: "💡 MẸO KEM BÉO: Ly M = 40cc, Ly L = 60cc. Tổng cốt trà ít đá: M = 300ml, L = 450ml!"
       },
 
-      // 5. TRÀ SỮA TRÂN CHÂU ĐƯỜNG ĐEN
+      // 6. TRÀ SỮA TRÂN CHÂU ĐƯỜNG ĐEN
       {
         id: "ts_tcdd",
         name: "Trà Sữa Trân Châu Đường Đen",
@@ -469,7 +519,7 @@
         hack: "💡 MẸO: Trà sữa thường nhưng KEM BÉO GIẢM 10cc (30cc / 50cc) và KHÔNG LẮC LY!"
       },
 
-      // 6. SỮA TƯƠI TRÂN CHÂU ĐƯỜNG ĐEN
+      // 7. SỮA TƯƠI TRÂN CHÂU ĐƯỜNG ĐEN
       {
         id: "st_tcdd",
         name: "Sữa Tươi Trân Châu Đường Đen",
@@ -498,7 +548,7 @@
         hack: "💡 MẸO ĐƯỜNG: Ly M là 20-10-0cc. Ly L là 30-15-0cc. Sữa đá thường: 300ml (M) / 360ml (L)!"
       },
 
-      // 7. CÀ PHÊ SỮA (MỚI)
+      // 8. CÀ PHÊ SỮA
       {
         id: "ca_phe_sua",
         name: "Cà Phê Sữa (Độ ngọt cố định)",
@@ -521,7 +571,7 @@
         hack: "💡 MẸO '300 - 40 - 40 - 20': 300ml cafe, 40 sữa đặc, 40 kem béo, 20 đường. CẤM NHIỀU ĐÁ!"
       },
 
-      // 8. CÀ PHÊ KEM SỮA TƯƠI (MỚI)
+      // 9. CÀ PHÊ KEM SỮA TƯƠI
       {
         id: "ca_phe_kem",
         name: "Cà Phê Kem Sữa Tươi (Độ ngọt cố định)",
@@ -543,7 +593,7 @@
         hack: "💡 MẸO: 120ml sữa + 30cc đường khuấy trước -> đá -> 200ml cafe -> 1 viên kem vani 60g!"
       },
 
-      // 9. BÁT BẢO NGÔ GIA (CÔNG THỨC MỚI)
+      // 10. BÁT BẢO NGÔ GIA (CÔNG THỨC MỚI)
       {
         id: "bat_bao",
         name: "Bát Bảo Ngô Gia (Công thức mới 2025)",
@@ -564,11 +614,11 @@
           "Rót 200ml trà (Bí đao hoặc phối Trà xanh/Hồng trà)",
           "▲ Hoàn thành (Không lắc ly)"
         ],
-        notes: "MỚI: Bỏ Thạch Q & Hạt TT củ năng; Thay bằng Bánh Vuông Đường Đen (25g) và Trân Châu Củ Năng (25g). Giảm tối đa 50% đường.",
-        hack: "💡 MẸO 7 TOPPING MỚI: TCĐĐ 60g | Dừa 40g, Sương sáo 40g | Bánh vuông 25g, TC củ năng 25g, Sen 25g | 3Q trắng 20g!"
+        notes: "Công thức chuẩn Bát bảo vị ngọt mới 2025: Dùng Bánh vuông đường đen (25g) & Trân châu củ năng (25g). Giảm tối đa 50% đường.",
+        hack: "💡 MẸO 7 TOPPING BÁT BẢO: TCĐĐ 60g | Dừa 40g, Sương sáo 40g | Bánh vuông 25g, TC củ năng 25g, Sen 25g | 3Q trắng 20g!"
       },
 
-      // 10. TRÀ SỮA KHOAI MÔN NGHIỀN
+      // 11. TRÀ SỮA KHOAI MÔN NGHIỀN
       {
         id: "ts_khoai_mon",
         name: "Trà Sữa Khoai Môn Nghiền",
@@ -595,7 +645,7 @@
         hack: "💡 MẸO: 1.5 viên khoai (120g) + 40cc kem béo + 300ml trà. Đủ 5 mức đường. CẤM NHIỀU ĐÁ!"
       },
 
-      // 11. SỮA TƯƠI KHOAI MÔN NGHIỀN
+      // 12. SỮA TƯƠI KHOAI MÔN NGHIỀN
       {
         id: "st_khoai_mon",
         name: "Sữa Tươi Khoai Môn Nghiền",
@@ -619,7 +669,7 @@
         hack: "💡 MẸO: 1.5 viên khoai (120g) + 300ml sữa. Đường y chang Sữa tươi TCĐĐ (20cc - 10cc - 0cc)!"
       },
 
-      // 12. TRÀ SỮA SOCOLA
+      // 13. TRÀ SỮA SOCOLA
       {
         id: "ts_socola",
         name: "Trà Sữa Socola (Hồng Trà Đài Loan)",
@@ -653,7 +703,7 @@
         hack: "💡 MẸO KEM & SOCOLA: M = 40 kem + 30 sốt. L = 60 kem + 50 sốt. Trà: 300ml (M) / 400ml (L)!"
       },
 
-      // 13. HỒNG TRÀ LATTE
+      // 14. HỒNG TRÀ LATTE
       {
         id: "latte_hong_tra",
         name: "Hồng Trà Latte",
@@ -686,7 +736,7 @@
         hack: "💡 MẸO LATTE: Sữa 120ml (M) / 150ml (L). Trà 250ml (M) / 350ml (L). Đường 100%: 5cc (M) / 10cc (L)!"
       },
 
-      // 14. TRÀ KEM CHEESE
+      // 15. TRÀ KEM CHEESE
       {
         id: "kem_cheese",
         name: "Hồng / Xanh / Ô Long Kem Cheese",
@@ -709,7 +759,7 @@
         hack: "💡 MẸO KEM CHEESE: 350ml trà + 60g kem cheese. 3 mức (100-50-0). CẤM KHÔNG ĐÁ & NHIỀU ĐÁ!"
       },
 
-      // 15. MÀU HỒNG LÃNG MẠN (ỔI HỒNG)
+      // 16. MÀU HỒNG LÃNG MẠN (ỔI HỒNG)
       {
         id: "oi_hong",
         name: "Màu Hồng Lãng Mạn (Trà Chanh Ổi Hồng)",
@@ -735,7 +785,7 @@
         hack: "💡 MẸO ĐƯỜNG ỔI HỒNG: 70cc ổi, 10cc chanh, 1 lát chanh. NƯỚC LỌC. Đường: 60 - 45 - 30 - 20 - 0ml!"
       },
 
-      // 16. Ô LONG ĐÀO
+      // 17. Ô LONG ĐÀO
       {
         id: "o_long_dao",
         name: "Ô Long Đào",
@@ -761,7 +811,7 @@
         hack: "💡 MẸO ĐÀO: 5 miếng đào (25g) + 20cc nước đào + 1 vá thạch đào (45g). Cốt trà tổng 300ml!"
       },
 
-      // 17. Ô LONG NHO
+      // 18. Ô LONG NHO
       {
         id: "o_long_nho",
         name: "Ô Long Nho",
@@ -788,7 +838,7 @@
         hack: "💡 MẸO NHO: 50g mứt nho (dầm vừa) + 30cc sốt nho. Trà Ô long 300ml. Nhớ lắc đều!"
       },
 
-      // 18. HỒNG TRÀ BÍ ĐAO (MIX 6:4)
+      // 19. HỒNG TRÀ BÍ ĐAO (MIX 6:4)
       {
         id: "hong_tra_bi_dao",
         name: "Hồng Trà Bí Đao (Mix 6:4)",
@@ -816,7 +866,7 @@
         hack: "💡 MẸO 6:4: Ly M = 210ml Bí Đao + 140ml Hồng Trà. Ly L = 300ml Bí Đao + 200ml Hồng Trà!"
       },
 
-      // 19. TRÀ XANH BÍ ĐAO (MIX 5:5)
+      // 20. TRÀ XANH BÍ ĐAO (MIX 5:5)
       {
         id: "tra_xanh_bi_dao",
         name: "Trà Xanh Bí Đao (Mix 5:5)",
@@ -830,7 +880,7 @@
           { s: "50%", pp: "[175]ml Bí Đao + [175]ml Trà Xanh lạt", ca: "Tối đa 50%" }
         ],
         tableL: [
-          { s: "100%", pp: "[250]ml Bí Đao + [250]ml Trà Xanh ngọt", ca: "Tỉ lệ 5:5" },
+          { s: "100%", pp: "[250]ml Bí Đao + [250]ml Trà Xanh có đường", ca: "Tỉ lệ 5:5" },
           { s: "70%", pp: "[250]ml Bí Đao + [150]ml ngọt / [100]ml lạt", ca: "Tối đa 50%" },
           { s: "50%", pp: "[250]ml Bí Đao + [250]ml Trà Xanh lạt", ca: "Tối đa 50%" }
         ],
@@ -844,7 +894,7 @@
         hack: "💡 MẸO 5:5: Chia đôi bằng nhau! Ly M = 175/175ml. Ly L = 250/250ml!"
       },
 
-      // 20. TRÀ Ô LONG BÍ ĐAO
+      // 21. TRÀ Ô LONG BÍ ĐAO
       {
         id: "tra_olong_bidao",
         name: "Trà Ô Long Bí Đao",
@@ -868,7 +918,7 @@
         hack: "💡 MẸO: Trà y chang Trà Xanh Bí Đao M (175/175ml) nhưng có thêm 1 vá Củ Năng (40g)!"
       },
 
-      // 21. TRÀ XÍ MUỘI NGÔ GIA
+      // 22. TRÀ XÍ MUỘI NGÔ GIA
       {
         id: "xi_muoi_ngogia",
         name: "Trà Xí Muội Ngô Gia",
@@ -893,7 +943,7 @@
         hack: "💡 MẸO: 2 É (60g) + 1 Aiyu (40g). Trà xí muội: 300ml (M) / 400ml (L). Cố định đường!"
       },
 
-      // 22. TRÀ XÍ MUỘI BÍ ĐAO MIX
+      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX
       {
         id: "xi_muoi_bidao",
         name: "Trà Xí Muội Bí Đao (Mix)",
@@ -918,7 +968,7 @@
         hack: "💡 MẸO: Tỉ lệ 5:5 đều nhau! M = 150/150ml. L = 200/200ml. CẤM NHIỀU ĐÁ!"
       },
 
-      // 23. TRÀ XÍ MUỘI Ô LONG MIX
+      // 24. TRÀ XÍ MUỘI Ô LONG MIX
       {
         id: "xi_muoi_olong",
         name: "Trà Xí Muội Ô Long (Mix)",
@@ -947,7 +997,7 @@
         hack: "💡 MẸO: Xí muội cố định 150ml (M) / 200ml (L). Giảm đường thì giảm ở Trà Ô Long. CẤM NHIỀU ĐÁ!"
       },
 
-      // 24. TRÂN CHÂU ĐƯỜNG ĐEN LATTE
+      // 25. TRÂN CHÂU ĐƯỜNG ĐEN LATTE
       {
         id: "latte_tcdd",
         name: "Trân Châu Đường Đen Latte",
@@ -980,7 +1030,7 @@
         hack: "💡 MẸO: Công thức y hệt Hồng Trà Latte, chỉ thêm bước tráng ly 2 vá TCĐĐ (120g)!"
       },
 
-      // 25. BÍ ĐAO LATTE / VẢI THIỀU LATTE
+      // 26. BÍ ĐAO LATTE / VẢI THIỀU LATTE
       {
         id: "latte_bi_dao",
         name: "Bí Đao Latte / Vải Thiều Latte",
@@ -1006,7 +1056,7 @@
         hack: "💡 MẸO: Giống Hồng Trà Latte nhưng CHỈ CÓ 2 MỨC ĐƯỜNG (100% và 70%)!"
       },
 
-      // 26. TRÀ CHANH VẢI THIỀU / BÍ ĐAO CHANH
+      // 27. TRÀ CHANH VẢI THIỀU / BÍ ĐAO CHANH
       {
         id: "tra_chanh_codinh",
         name: "Trà Chanh Vải Thiều / Bí Đao Chanh",
@@ -1029,45 +1079,179 @@
         ],
         notes: "Cố định 100% độ đường.",
         hack: "💡 MẸO: Chanh & đường y chang Trà chanh thường (20-10 và 25-15) nhưng CỐ ĐỊNH ĐƯỜNG!"
-      },
-
-      // 27. BẢNG ĐỊNH LƯỢNG TOPPING TOÀN DIỆN
-      {
-        id: "topping_master",
-        name: "BẢNG ĐỊNH LƯỢNG TOPPING TOÀN DIỆN",
-        sizes: "Áp dụng toàn bộ hệ thống HTNG",
-        action: "[Chuẩn từng gram]",
-        actionClass: "badge-no-shake",
-        ice: "Bảo quản tủ mát (0-6°) hoặc tủ đông (-5~-22°)",
-        tableM: [
-          { s: "Pudding", pp: "[100]g / 1 hủ", ca: "Dùng ngay trong ca" },
-          { s: "TC Đường đen", pp: "[120]g / [2] vá", ca: "Bảo quản nhiệt độ thường" },
-          { s: "TC Baby Hoàng kim", pp: "[100]g / [2] vá", ca: "Bảo quản nhiệt độ thường" },
-          { s: "Kem vani", pp: "[60]g / [1] viên", ca: "Bảo quản tủ đông" },
-          { s: "Đào miếng", pp: "[25]g / [5] miếng", ca: "Đã khui tủ mát 2 ngày" },
-          { s: "Khoai Môn Nghiền", pp: "[80]g / 1 vá ([120]g / 1.5 viên)", ca: "Tủ mát 3 ngày" },
-          { s: "Thạch đào / Dừa / Sương sáo / Aiyu", pp: "[80]g / [2] vá", ca: "Bát bảo / Trà đào múc 1 vá" },
-          { s: "Hạt É", pp: "[60]g / [2] vá", ca: "Nhiệt độ thường 1 tháng" },
-          { s: "Thạch Q / Củ năng / Lúa mạch", pp: "[40]g / [1] vá", ca: "Bảo quản tủ mát" },
-          { s: "Hạt Sen / TC Khoai môn", pp: "[50]g / [1] vá", ca: "Bảo quản tủ mát" },
-          { s: "3Q Trắng", pp: "[45]g / [1] vá", ca: "Bảo quản tủ mát" },
-          { s: "Thạch sữa viên / Sương sáo viên", pp: "[8] viên", ca: "Bảo quản tủ mát 3 ngày" },
-          { s: "Kem cheese", pp: "[60] gram", ca: "Bảo quản tủ mát" },
-          { s: "Bánh vuông đường đen (MỚI Bát bảo)", pp: "[25]g / nửa vá", ca: "Công thức mới 17/12/2025" },
-          { s: "Trân châu củ năng (MỚI Bát bảo)", pp: "[25]g / nửa vá", ca: "Công thức mới 17/12/2025" }
-        ],
-        steps: [
-          "Nhóm 2 vá (80g): Thạch đào, Thạch dừa, Sương sáo, Aiyu",
-          "Nhóm 1 vá (40g): Thạch Q, Củ năng, Lúa mạch",
-          "Nhóm 1 viên / miếng: Kem vani 60g, Đào 5 miếng 25g",
-          "Nhóm đặc biệt: TCĐĐ 120g (2 vá), Hạt é 60g (2 vá)",
-          "Bát bảo mới: Bánh vuông 25g + TC củ năng 25g"
-        ],
-        notes: "Mỗi nguyên vật liệu sau khi dùng xong phải trả lại ngay vào vị trí bảo quản.",
-        hack: "💡 MẸO NHỚ: Topping 2 vá = 80g. Topping 1 vá củ năng/lúa mạch/thạch Q = 40g. Kem vani = 60g!"
       }
     ];
 
+    // ==========================================
+    // PHÂN HỆ 2: CÔNG THỨC NẤU TOPPING & NGUYÊN LIỆU (5 MÓN)
+    // ==========================================
+    const COOKING = [
+      // 1. TRÂN CHÂU NGŨ SẮC
+      {
+        id: "cook_ngu_sac",
+        name: "Nấu Trân Châu Ngũ Sắc (🌈)",
+        sizes: "300gr - 500gr - 1kg",
+        action: "[Nấu 10p - Ủ 10p]",
+        actionClass: "badge-stir",
+        ice: "Bảo quản nhiệt độ thường (25°)",
+        tableM: [
+          { s: "300g", pp: "[2000]ml Nước", ca: "[70]cc Nước đường" },
+          { s: "500g", pp: "[2500]ml Nước", ca: "[100]cc Nước đường" },
+          { s: "1kg", pp: "[3500]ml Nước", ca: "[150]cc Nước đường" }
+        ],
+        steps: [
+          "Đun sôi nước theo tỷ lệ (2000ml / 2500ml / 3500ml)",
+          "Thả trân châu ngũ sắc vào khuấy đều tránh dính đáy",
+          "Nấu lửa vừa trong 10 phút",
+          "Tắt bếp đậy nắp ủ trong 10 phút",
+          "Vớt ra xả sạch nhớt bằng nước lọc",
+          "Trộn nước đường tương ứng (70cc / 100cc / 150cc)"
+        ],
+        notes: "Nấu 10p – Ủ 10p. 300g (2000ml/70cc), 500g (2500ml/100cc), 1kg (3500ml/150cc). Quy trình rửa và trộn đường giống Trân châu củ năng.",
+        hack: "💡 MẸO NHỚ NGŨ SẮC: Nấu 10p - Ủ 10p. Nước: 2000 -> 2500 -> 3500ml. Đường: 70 -> 100 -> 150cc!"
+      },
+      // 2. HẠT É
+      {
+        id: "cook_hat_e",
+        name: "Nấu Hạt É (🌱)",
+        sizes: "10gr - 20gr - 30gr",
+        action: "[HSD: 2 ngày mát]",
+        actionClass: "badge-stir",
+        ice: "Bảo quản tủ mát 2 ngày sau khi nấu",
+        tableM: [
+          { s: "10gr", pp: "[300]ml Nước", ca: "[50]cc Nước đường" },
+          { s: "20gr", pp: "[600]ml Nước", ca: "[100]cc Nước đường" },
+          { s: "30gr", pp: "[900]ml Nước", ca: "[150]cc Nước đường" }
+        ],
+        steps: [
+          "Cân đúng định lượng Hạt É (10gr / 20gr / 30gr)",
+          "Đong lượng nước lọc tương ứng (300ml / 600ml / 900ml)",
+          "Thêm nước đường theo tỷ lệ (50cc / 100cc / 150cc)",
+          "Khuấy đều cho hạt é nở đều",
+          "Bảo quản tủ mát sử dụng trong 2 ngày"
+        ],
+        notes: "Cứ mỗi 10gr hạt é = +300ml Nước & +50cc Nước đường.",
+        hack: "💡 MẸO NHỚ HẠT É: Cứ 10g là 300 nước / 50 đường. 20g là 600 / 100. 30g là 900 / 150!"
+      },
+      // 3. TRÂN CHÂU KHOAI MÔN
+      {
+        id: "cook_khoai_mon",
+        name: "Nấu Trân Châu Khoai Môn (🟣)",
+        sizes: "150gr - 300gr - 500gr",
+        action: "[Nấu 3p - 0 Ủ]",
+        actionClass: "badge-no-shake",
+        ice: "Nấu xong bảo quản theo ca",
+        tableM: [
+          { s: "150gr", pp: "[1500]ml Nước", ca: "[25]cc Nước đường" },
+          { s: "300gr", pp: "[2500]ml Nước", ca: "[50]cc Nước đường" },
+          { s: "500gr", pp: "[2500]ml Nước", ca: "[75]cc Nước đường" }
+        ],
+        steps: [
+          "Đun sôi lượng nước theo công thức",
+          "Thả trân châu khoai môn vào khuấy đều",
+          "Nấu đúng 3 phút (KHÔNG Ủ)",
+          "Vớt ra rửa sạch nhớt",
+          "Trộn nước đường tương ứng (25cc / 50cc / 75cc)"
+        ],
+        notes: "Nấu 3p, KHÔNG ủ. Nước đường tăng +25cc. Bẫy: Cả 300gr và 500gr đều dùng 2500ml nước!",
+        hack: "💡 MẸO NHỚ: Nấu 3p - 0 ủ. Đường tăng +25cc (25->50->75). Cả mốc 300g và 500g ĐỀU là 2500ml nước!"
+      },
+      // 4. TRÂN CHÂU ĐƯỜNG ĐEN
+      {
+        id: "cook_duong_den",
+        name: "Nấu Trân Châu Đường Đen (🌑)",
+        sizes: "500gr đến 2500gr",
+        action: "[Nấu 30p - Ủ 30p]",
+        actionClass: "badge-shake",
+        ice: "Bảo quản nhiệt độ thường",
+        tableM: [
+          { s: "500gr", pp: "[2000]ml Nước + [60]cc Đường", ca: "Siro: [90]cc" },
+          { s: "1000gr", pp: "[3000]ml Nước + [120]cc Đường", ca: "Siro: [200]cc" },
+          { s: "1500gr", pp: "[4000]ml Nước + [170]cc Đường", ca: "Siro: [250]cc" },
+          { s: "2000gr", pp: "[5000]ml Nước + [220]cc Đường", ca: "Siro: [300]cc" },
+          { s: "2500gr", pp: "[6000]ml Nước + [270]cc Đường", ca: "Siro: [390]cc" }
+        ],
+        steps: [
+          "Đun sôi nước theo định lượng",
+          "Cho trân châu vào khuấy đều tránh dính đáy",
+          "Nấu đúng 30 phút",
+          "Tắt bếp ủ đúng 30 phút",
+          "Xả sạch nhớt bằng nước ấm/lọc",
+          "Trộn nước đường và siro đường đen ngâm thấm"
+        ],
+        notes: "Nấu 30p – Ủ 30p. Nước tăng đều +1000ml. Đường: 60->120 (+60), rồi +50 đều (170->220->270).",
+        hack: "💡 MẸO NHỚ ĐƯỜNG ĐEN: Nấu 30p - Ủ 30p. Nước tăng 1000ml (2k->6k). Siro: 90->200->250->300->390cc!"
+      },
+      // 5. BÁNH VUÔNG & TC CỦ NĂNG
+      {
+        id: "cook_banh_vuong",
+        name: "Nấu Bánh Vuông & TC Củ Năng (⬛⬜)",
+        sizes: "300gr - 500gr - 1000gr",
+        action: "[Định lượng chuẩn 2.2]",
+        actionClass: "badge-stir",
+        ice: "Bảo quản theo quy định",
+        tableM: [
+          { s: "300g", pp: "[2000]ml Nước", ca: "[50]cc Nước đường" },
+          { s: "500g", pp: "[3000]ml Nước", ca: "[100]cc Nước đường" },
+          { s: "1000g", pp: "[4000]ml Nước", ca: "[200]cc Nước đường" }
+        ],
+        steps: [
+          "Đun sôi nước theo tỷ lệ (2000ml / 3000ml / 4000ml)",
+          "Thả Bánh vuông đường đen hoặc TC Củ năng vào nấu",
+          "Canh chuẩn thời gian theo hướng dẫn",
+          "Vớt ra xả sạch",
+          "Trộn nước đường (50cc / 100cc / 200cc)"
+        ],
+        notes: "Mốc 300 – 500 – 1000gram. Nước tăng +1000ml (2000->3000->4000). Nước đường nhân đôi (50->100->200cc).",
+        hack: "💡 MẸO NHỚ: Nước tăng +1000ml (2k->3k->4k). Đường NHÂN ĐÔI mỗi mốc (50cc -> 100cc -> 200cc)!"
+      }
+    ];
+
+    // ==========================================
+    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING (TRANG HỌC TOPPING DUY NHẤT)
+    // ==========================================
+    const TOPPING_STUDY = [
+      {
+        id: "topping_master_study",
+        name: "BẢNG ĐỊNH LƯỢNG TOPPING TOÀN DIỆN (Học Thuộc)",
+        sizes: "Chuẩn thực tế phục vụ tại HTNG",
+        action: "[Chuẩn từng gram]",
+        actionClass: "badge-no-shake",
+        ice: "Bảo quản tủ mát (0-6°) hoặc NĐ thường (25°) tùy loại",
+        tableM: [
+          { s: "TC Đường đen", pp: "[120]g / [2] vá", ca: "2 vá 120gr" },
+          { s: "TC Ngũ sắc", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
+          { s: "Bánh vuông Đ.Đen", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
+          { s: "Trân châu Củ năng", pp: "[100]g / [2] vá", ca: "2 vá 100gr" },
+          { s: "TC Khoai môn", pp: "[50]g / [1] vá", ca: "1 vá 50gr" },
+          { s: "Hạt sen", pp: "[50]g / [1] vá", ca: "1 vá 50gr" },
+          { s: "Pudding trứng", pp: "[120]gr", ca: "120gr" },
+          { s: "Pudding ss (Sương sáo)", pp: "[200]gr / hủ", ca: "1 hủ 200gr" },
+          { s: "Mứt nho", pp: "[50]gr", ca: "50gr dầm vừa" },
+          { s: "Trân châu 3Q Trắng", pp: "[45]g / [1] vá", ca: "1 vá 45gr" },
+          { s: "Thạch Q", pp: "[40]g / [1] vá", ca: "1 vá 40gr" },
+          { s: "Thủy tinh củ năng", pp: "[40]g / [1] vá", ca: "1 vá 40gr" },
+          { s: "Khoai môn nghiền", pp: "[80]g / 1 vá ([120]g/1.5v)", ca: "1 vá 80g / 1.5v 120g" },
+          { s: "Thạch Đào / Dừa / Sương sáo / Aiyu", pp: "[80]g / [2] vá", ca: "2 vá 80gr" },
+          { s: "Hạt É", pp: "[60]g / [2] vá", ca: "2 vá 60gr" },
+          { s: "Kem vani", pp: "[60]g / [1] viên", ca: "1 viên 60g" },
+          { s: "Đào miếng", pp: "[25]g / [5] miếng", ca: "5 miếng 25g" },
+          { s: "Kem cheese", pp: "[60] gram", ca: "60 gram" }
+        ],
+        steps: [
+          "Nhóm 2 vá (100g): Ngũ sắc, Bánh vuông, Trân châu củ năng",
+          "Nhóm 2 vá (120g & 80g): TCĐĐ 120g, Thạch Đào/Dừa/Sương sáo/Aiyu 80g",
+          "Nhóm 1 vá (50g): Hạt sen, Trân châu khoai môn",
+          "Nhóm 1 vá (40g & 45g): Thạch Q 40g, TT Củ năng 40g, 3Q Trắng 45g",
+          "Nhóm Hủ & Gram riêng: Pudding trứng 120g, Pudding ss 200g/hủ, Mứt nho 50g",
+          "Nhóm Miếng / Viên / Béo: Đào 5 miếng (25g), Kem vani 1 viên (60g), Kem cheese 60g"
+        ],
+        notes: "Múc đúng số vá và kiểm tra định lượng gram để đảm bảo chuẩn vị và cost món.",
+        hack: "💡 MẸO NHỚ: 2 vá 100g = Ngũ sắc, Bánh vuông, Củ năng. 2 vá 120g = TCĐĐ. 1 vá 50g = Sen, TC khoai môn. Pudding trứng 120g, Pudding ss 200g/hủ, Mứt nho 50g!"
+      }
+    ];
+
+    let currentModule = 'drink'; // 'drink' | 'cook' | 'topping'
     let currentIdx = 0;
     let isBlindMode = false;
     let isClozeMode = false;
@@ -1075,24 +1259,48 @@
     let selectedStepIdx = null;
     let learnedList = JSON.parse(localStorage.getItem('ngogia_learned') || '[]');
 
+    function getActiveList() {
+      if (currentModule === 'drink') return DRINKS;
+      if (currentModule === 'cook') return COOKING;
+      return TOPPING_STUDY;
+    }
+
     function init() {
+      renderDropdown();
+      buildToppingModal();
+      loadItemData();
+      updateProgress();
+    }
+
+    function renderDropdown() {
+      const list = getActiveList();
       const sel = document.getElementById('drink-selector');
       sel.innerHTML = '';
-      DRINKS.forEach((d, idx) => {
+      list.forEach((d, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
         opt.textContent = `${idx + 1}. ${d.name}`;
         sel.appendChild(opt);
       });
+    }
 
+    function buildToppingModal() {
       const tb = document.getElementById('topping-modal-body');
       let tHtml = '';
       TOPPINGS_REF.forEach(t => {
         tHtml += `<tr><td>${t.id}</td><td style="text-align:left;"><strong>${t.name}</strong></td><td style="color:var(--primary); font-weight:800;">${t.val}</td></tr>`;
       });
       tb.innerHTML = tHtml;
+    }
 
-      loadDrinkData();
+    function switchModule(mod) {
+      currentModule = mod;
+      currentIdx = 0;
+      document.getElementById('tab-module-drink').classList.toggle('active', mod === 'drink');
+      document.getElementById('tab-module-cook').classList.toggle('active', mod === 'cook');
+      document.getElementById('tab-module-topping').classList.toggle('active', mod === 'topping');
+      renderDropdown();
+      loadItemData();
       updateProgress();
     }
 
@@ -1109,20 +1317,21 @@
       });
     }
 
-    function loadDrinkData() {
-      const d = DRINKS[currentIdx];
-      // Clone original steps
+    function loadItemData() {
+      const list = getActiveList();
+      const d = list[currentIdx];
       currentSteps = [...d.steps];
       selectedStepIdx = null;
       renderCard();
     }
 
     function renderCard() {
-      const d = DRINKS[currentIdx];
+      const list = getActiveList();
+      const d = list[currentIdx];
       const isLearned = learnedList.includes(d.id);
       const display = document.getElementById('card-display');
       document.getElementById('drink-selector').value = currentIdx;
-      document.getElementById('card-counter').textContent = `${currentIdx + 1} / ${DRINKS.length}`;
+      document.getElementById('card-counter').textContent = `${currentIdx + 1} / ${list.length}`;
 
       if (isBlindMode) display.classList.add('mode-blind');
       else display.classList.remove('mode-blind');
@@ -1130,7 +1339,6 @@
       const clozeBar = document.getElementById('cloze-bar');
       clozeBar.style.display = isClozeMode ? 'flex' : 'none';
 
-      // Table M
       let trM = '';
       d.tableM.forEach(r => {
         trM += `<tr>
@@ -1140,7 +1348,6 @@
         </tr>`;
       });
 
-      // Table L if any
       let tableLHtml = '';
       if (d.tableL) {
         let trL = '';
@@ -1164,6 +1371,19 @@
         `;
       }
 
+      let colHeader1 = 'Mức Đường';
+      let colHeader2 = 'Ly PP (Đá thường)';
+      let colHeader3 = 'Ca (Ít/K.đá)';
+      if (currentModule === 'cook') {
+        colHeader1 = 'Khối Lượng';
+        colHeader2 = 'Lượng Nước Nấu';
+        colHeader3 = 'Nước Đường / Siro';
+      } else if (currentModule === 'topping') {
+        colHeader1 = 'Tên Topping';
+        colHeader2 = 'Định Lượng Chuẩn';
+        colHeader3 = 'Ghi Chú Khẩu Phần';
+      }
+
       display.innerHTML = `
         <div class="sheet-header">
           <div>
@@ -1178,39 +1398,39 @@
           </button>
         </div>
 
-        <!-- MỨC ĐÁ -->
+        <!-- MỨC ĐÁ / ĐIỀU KIỆN -->
         <div class="section-block">
-          <div class="section-title"><span>QUY CHUẨN ĐÁ:</span></div>
+          <div class="section-title"><span>${currentModule === 'cook' ? 'ĐIỀU KIỆN & BẢO QUẢN:' : currentModule === 'topping' ? 'ĐIỀU KIỆN BẢO QUẢN:' : 'QUY CHUẨN ĐÁ:'}</span></div>
           <div style="font-size:0.78rem; line-height:1.45; color:#334155; font-weight:700;">
             ${parseTemplate(d.ice)}
           </div>
         </div>
 
-        <!-- BẢNG ĐƯỜNG M -->
+        <!-- BẢNG ĐỊNH LƯỢNG M -->
         <div class="section-block">
-          <div class="section-title"><span>${d.id === 'topping_master' ? 'ĐỊNH LƯỢNG TOPPING' : 'LY M (700cc)'}</span></div>
+          <div class="section-title"><span>${currentModule === 'cook' ? 'BẢNG NẤU CHUẨN:' : currentModule === 'topping' ? 'BẢNG ĐỊNH LƯỢNG TOPPING:' : (d.tableL ? 'LY M (700cc)' : 'ĐỊNH LƯỢNG CHI TIẾT (LY M):')}</span></div>
           <div class="table-wrap">
             <table>
-              <thead><tr><th>${d.id === 'topping_master' ? 'Topping' : 'Đường'}</th><th>${d.id === 'topping_master' ? 'Định Lượng' : 'Ly PP (Đá thường)'}</th><th>${d.id === 'topping_master' ? 'Ghi Chú' : 'Ca (Ít/K.đá)'}</th></tr></thead>
+              <thead><tr><th>${colHeader1}</th><th>${colHeader2}</th><th>${colHeader3}</th></tr></thead>
               <tbody>${trM}</tbody>
             </table>
           </div>
         </div>
 
-        <!-- BẢNG ĐƯỜNG L -->
+        <!-- BẢNG ĐỊNH LƯỢNG L NẾU CÓ -->
         ${tableLHtml}
 
         <!-- QUY TRÌNH KÉO THẢ / CHẠM ĐỔI VỊ TRÍ HỌC THUỘC -->
         <div class="section-block">
           <div class="section-title">
-            <span>QUY TRÌNH (KÉO THẢ / CHẠM ĐỔI CHỖ):</span>
+            <span>${currentModule === 'topping' ? 'PHÂN NHÓM GHI NHỚ (KÉO THẢ/ĐỔI VỊ TRÍ):' : 'QUY TRÌNH (KÉO THẢ / CHẠM ĐỔI VỊ TRÍ):'}</span>
             <button onclick="scrambleSteps()" style="background:#e0f2fe; color:var(--primary); border:none; padding:2px 6px; border-radius:5px; font-weight:800; font-size:0.68rem; cursor:pointer;"><i class="fa-solid fa-shuffle"></i> Đảo thứ tự</button>
           </div>
           <div class="steps-container" id="steps-box"></div>
           <div id="seq-feedback-box"></div>
         </div>
 
-        <!-- LƯU Ý & MẸO -->
+        <!-- LƯU Ý & MẸO NHỚ -->
         ${d.notes ? `<div class="note-box"><i class="fa-solid fa-triangle-exclamation"></i> ${d.notes}</div>` : ''}
         <div class="hack-box">${d.hack}</div>
       `;
@@ -1221,10 +1441,10 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // RENDER DANH SÁCH BƯỚC QUY TRÌNH HỖ TRỢ KÉO THẢ & CHẠM ĐỔI CHỖ
     function renderStepsList() {
       const box = document.getElementById('steps-box');
-      const d = DRINKS[currentIdx];
+      const list = getActiveList();
+      const d = list[currentIdx];
       let html = '';
 
       const isCorrectOrder = currentSteps.every((val, index) => val === d.steps[index]);
@@ -1255,20 +1475,18 @@
 
       const fb = document.getElementById('seq-feedback-box');
       if (isCorrectOrder) {
-        fb.innerHTML = `<div class="seq-feedback seq-correct"><i class="fa-solid fa-circle-check"></i> CHUẨN XÁC 100%! ĐÃ ĐÚNG THỨ TỰ QUY TRÌNH!</div>`;
+        fb.innerHTML = `<div class="seq-feedback seq-correct"><i class="fa-solid fa-circle-check"></i> CHUẨN XÁC 100%! ĐÃ ĐÚNG THỨ TỰ!</div>`;
       } else {
         fb.innerHTML = `<div class="seq-feedback seq-scrambled"><i class="fa-solid fa-hand-pointer"></i> Chạm 2 bước bất kỳ để đổi chỗ (hoặc bấm ▲/▼) để xếp đúng!</div>`;
       }
     }
 
-    // ĐẢO THỨ TỰ BƯỚC ĐỂ LUYỆN TẬP
     function scrambleSteps() {
       selectedStepIdx = null;
       currentSteps.sort(() => Math.random() - 0.5);
       renderStepsList();
     }
 
-    // CHẠM 2 THẺ ĐỂ HOÁN ĐỔI TRÊN ĐIỆN THOẠI
     function onStepClick(idx) {
       if (selectedStepIdx === null) {
         selectedStepIdx = idx;
@@ -1283,7 +1501,6 @@
       renderStepsList();
     }
 
-    // NÚT MŨI TÊN DI CHUYỂN
     function moveStep(idx, dir) {
       const target = idx + dir;
       if (target >= 0 && target < currentSteps.length) {
@@ -1295,15 +1512,12 @@
       }
     }
 
-    // KÉO THẢ TRÊN MÁY TÍNH & TRÌNH DUYỆT
     let draggedIdx = null;
     function onDragStart(e, idx) {
       draggedIdx = idx;
       e.dataTransfer.setData('text/plain', idx);
     }
-    function onDragOver(e) {
-      e.preventDefault();
-    }
+    function onDragOver(e) { e.preventDefault(); }
     function onDrop(e, targetIdx) {
       e.preventDefault();
       if (draggedIdx !== null && draggedIdx !== targetIdx) {
@@ -1315,7 +1529,6 @@
       }
     }
 
-    // BẬT / TẮT CHẾ ĐỘ CHE SỐ VÀ ĐỤC LỖ
     function toggleMode(mode) {
       if (mode === 'blind') {
         isBlindMode = !isBlindMode;
@@ -1331,7 +1544,6 @@
       renderCard();
     }
 
-    // SO SÁNH ĐỤC LỖ TỰ ĐỘNG
     function checkCloze(input) {
       const val = input.value.trim().toLowerCase();
       const ans = input.getAttribute('data-ans').trim().toLowerCase();
@@ -1386,16 +1598,17 @@
       updateClozeScore();
     }
 
-    function navDrink(step) {
+    function navItem(step) {
+      const list = getActiveList();
       currentIdx += step;
-      if (currentIdx < 0) currentIdx = DRINKS.length - 1;
-      if (currentIdx >= DRINKS.length) currentIdx = 0;
-      loadDrinkData();
+      if (currentIdx < 0) currentIdx = list.length - 1;
+      if (currentIdx >= list.length) currentIdx = 0;
+      loadItemData();
     }
 
-    function jumpToDrink(idx) {
+    function jumpToItem(idx) {
       currentIdx = parseInt(idx);
-      loadDrinkData();
+      loadItemData();
     }
 
     function toggleLearned(id) {
@@ -1410,8 +1623,9 @@
     }
 
     function updateProgress() {
-      const count = learnedList.length;
-      const total = DRINKS.length;
+      const list = getActiveList();
+      const count = list.filter(item => learnedList.includes(item.id)).length;
+      const total = list.length;
       const pct = Math.round((count / total) * 100);
       document.getElementById('card-counter').textContent = `${currentIdx + 1} / ${total}`;
     }
