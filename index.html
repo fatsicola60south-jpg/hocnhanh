@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Bản quyền của PHÁT - Đại Cẩm Nang SOP & Nấu Trân Châu</title>
+  <title>Bản quyền của PHÁT - Đại Cẩm Nang SOP, Nấu Topping & HSD Ngô Gia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -28,7 +28,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; }
     body { background-color: var(--bg); color: var(--text); padding-bottom: 75px; min-height: 100vh; }
 
-    /* HEADER */
     header {
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
       color: white; padding: 10px 14px; position: sticky; top: 0; z-index: 100;
@@ -50,12 +49,12 @@
 
     .container { padding: 10px; max-width: 500px; margin: 0 auto; }
 
-    /* MAIN NAV 3 PHÂN HỆ */
+    /* THANH ĐIỀU HƯỚNG 4 PHÂN HỆ */
     .module-nav {
-      display: flex; background: #e2e8f0; border-radius: 12px; padding: 3px; margin-bottom: 8px; gap: 3px;
+      display: flex; background: #e2e8f0; border-radius: 12px; padding: 3px; margin-bottom: 8px; gap: 2px;
     }
     .module-tab {
-      flex: 1; padding: 7px 3px; border: none; border-radius: 9px; font-size: 0.72rem; font-weight: 800;
+      flex: 1; padding: 7px 2px; border: none; border-radius: 9px; font-size: 0.68rem; font-weight: 800;
       color: #475569; background: transparent; cursor: pointer; text-align: center; display: flex; align-items: center; justify-content: center; gap: 3px; transition: 0.15s;
     }
     .module-tab.active { background: white; color: var(--primary); box-shadow: 0 2px 6px rgba(0,0,0,0.06); }
@@ -77,7 +76,7 @@
     .tool-btn.active-blind { background: #fef3c7; border-color: var(--warning); color: #b45309; }
     .tool-btn.active-cloze { background: #f3e8ff; border-color: var(--purple); color: #6b21a8; }
 
-    /* THANH BÁO ĐỤC LỖ */
+    /* THANH THỐNG KÊ ĐỤC LỖ */
     .cloze-bar {
       display: none; background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 8px;
       padding: 6px 10px; margin-bottom: 8px; font-size: 0.75rem; font-weight: 800; color: #6b21a8;
@@ -87,7 +86,7 @@
       background: #8b5cf6; color: white; border: none; border-radius: 6px; padding: 3px 6px; font-size: 0.7rem; font-weight: 800; cursor: pointer;
     }
 
-    /* CARD RECIPE */
+    /* CARD CHÍNH */
     .recipe-sheet {
       background: white; border-radius: 14px; border: 1.5px solid #cbd5e1; padding: 12px;
       box-shadow: 0 3px 12px rgba(0,0,0,0.03);
@@ -107,6 +106,9 @@
     .badge-shake { background: #dbeafe; color: #1e40af; }
     .badge-stir { background: #fef3c7; color: #92400e; }
     .badge-size { background: #f1f5f9; color: #475569; }
+    .badge-mat { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-dong { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .badge-thuong { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
 
     .btn-fav {
       background: #f8fafc; border: 1px solid var(--border); border-radius: 8px;
@@ -121,14 +123,13 @@
       margin-bottom: 4px; display: flex; align-items: center; justify-content: space-between;
     }
 
-    /* BẢNG NGAY NGẮN CHUẨN ĐIỆN THOẠI */
+    /* BẢNG CHUẨN ĐIỆN THOẠI */
     .table-wrap { border-radius: 8px; border: 1px solid #e2e8f0; overflow: hidden; margin-bottom: 6px; }
     table { width: 100%; border-collapse: collapse; font-size: 0.78rem; text-align: center; }
     th { background: #f0f7ff; color: var(--primary-dark); padding: 6px 4px; border: 1px solid #e2e8f0; font-weight: 800; font-size: 0.72rem; }
     td { padding: 5px 4px; border: 1px solid #e2e8f0; font-weight: 700; color: #1e293b; height: 32px; vertical-align: middle; }
     tr:nth-child(even) td { background: #fbfdff; }
 
-    /* Ô CHE SỐ & Ô ĐỤC LỖ */
     .val-highlight { font-weight: 800; color: var(--primary); }
     
     .maskable {
@@ -148,17 +149,16 @@
     }
     .mode-blind .maskable.revealed::after { content: ""; }
 
-    /* Ô NHẬP ĐỤC LỖ */
     .cloze-input {
-      display: inline-block; width: 48px; height: 22px; line-height: 22px; text-align: center;
-      font-size: 0.78rem; font-weight: 800; border-radius: 5px; border: 1.5px solid #cbd5e1;
+      display: inline-block; width: 55px; height: 22px; line-height: 22px; text-align: center;
+      font-size: 0.76rem; font-weight: 800; border-radius: 5px; border: 1.5px solid #cbd5e1;
       vertical-align: middle; padding: 0; outline: none; background: #fff;
     }
     .cloze-input:focus { border-color: var(--accent); }
     .cloze-input.correct { background: #dcfce7 !important; border-color: #10b981 !important; color: #065f46 !important; }
     .cloze-input.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
 
-    /* KHỐI KÉO THẢ QUY TRÌNH */
+    /* KÉO THẢ QUY TRÌNH (CHỈ DÀNH CHO PHA CHẾ ĐỒ UỐNG) */
     .steps-container { display: flex; flex-direction: column; gap: 5px; margin-top: 4px; }
     .step-item {
       background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 8px; padding: 7px 8px;
@@ -182,7 +182,6 @@
     .seq-correct { background: #dcfce7; color: #065f46; border: 1px solid #a7f3d0; }
     .seq-scrambled { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
 
-    /* HỘP MẸO & LƯU Ý */
     .note-box {
       background: #fffbeb; border-left: 3px solid var(--warning); border-radius: 6px; padding: 6px 8px;
       font-size: 0.74rem; font-weight: 700; color: #92400e; margin-top: 6px; line-height: 1.4;
@@ -192,7 +191,7 @@
       font-size: 0.74rem; font-weight: 800; color: var(--primary-dark); margin-top: 6px; line-height: 1.4;
     }
 
-    /* FOOTER NAV */
+    /* FOOTER */
     .bottom-bar {
       position: fixed; bottom: 0; left: 0; right: 0; height: 60px; background: white;
       border-top: 1.5px solid #cbd5e1; display: flex; justify-content: space-between; align-items: center;
@@ -235,14 +234,14 @@
         </div>
       </div>
       <button class="btn-top-topping" onclick="openToppingModal()">
-        <i class="fa-solid fa-boxes-stacked"></i> <span>Topping Chuẩn</span>
+        <i class="fa-solid fa-boxes-stacked"></i> <span>Topping</span>
       </button>
     </div>
   </header>
 
   <div class="container">
     
-    <!-- THANH CHUYỂN 3 PHÂN HỆ: PHA CHẾ - NẤU TOPPING - HỌC TOPPING -->
+    <!-- THANH CHUYỂN 4 PHÂN HỆ -->
     <div class="module-nav">
       <button class="module-tab active" id="tab-module-drink" onclick="switchModule('drink')">
         <i class="fa-solid fa-mug-hot"></i> <span>Pha Chế (27)</span>
@@ -251,7 +250,10 @@
         <i class="fa-solid fa-fire-burner"></i> <span>Nấu (5)</span>
       </button>
       <button class="module-tab" id="tab-module-topping" onclick="switchModule('topping')">
-        <i class="fa-solid fa-boxes-stacked"></i> <span>Học Topping</span>
+        <i class="fa-solid fa-boxes-stacked"></i> <span>Topping</span>
+      </button>
+      <button class="module-tab" id="tab-module-hsd" onclick="switchModule('hsd')">
+        <i class="fa-solid fa-clock-rotate-left"></i> <span>HSD (38)</span>
       </button>
     </div>
 
@@ -290,7 +292,7 @@
     <button class="nav-btn nav-btn-next" onclick="navItem(1)">Tiếp <i class="fa-solid fa-arrow-right"></i></button>
   </div>
 
-  <!-- MODAL BẢNG TOPPING ĐÃ CẬP NHẬT 100% SỐ LIỆU MỚI -->
+  <!-- MODAL BẢNG TOPPING CHUẨN THỰC TẾ -->
   <div class="modal-overlay" id="topping-modal" onclick="closeModalOnOverlay(event)">
     <div class="modal-box">
       <div class="modal-header">
@@ -307,13 +309,7 @@
   </div>
 
   <script>
-    // BẢNG TOPPING CHUẨN CẬP NHẬT CHÍNH XÁC:
-    // - Pudding trứng 120gr / 2 vá
-    // - Mứt nho 50gr / 1 vá
-    // - Pudding ss 200gr / hủ
-    // - 2 vá Ngũ sắc, Bánh vuông, Củ năng = 100g
-    // - 2 vá Đường đen = 120g
-    // - 1 vá TC Khoai môn = 50g
+    // BẢNG TOPPING CHUẨN THỰC TẾ
     const TOPPINGS_REF = [
       { id: 1, name: "Trân châu đường đen", val: "120g / 2 vá" },
       { id: 2, name: "Trân châu ngũ sắc", val: "100g / 2 vá" },
@@ -339,10 +335,10 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 1: KHO CÔNG THỨC PHA CHẾ (27 MÓN)
+    // PHÂN HỆ 1: KHO CÔNG THỨC PHA CHẾ (27 MÓN) - DUY NHẤT CÓ QUY TRÌNH KÉO THẢ
     // ==========================================
     const DRINKS = [
-      // 1. TRÀ SỮA UYÊN ƯƠNG (MỚI)
+      // 1. TRÀ SỮA UYÊN ƯƠNG
       {
         id: "ts_uyen_uong",
         name: "Trà Sữa Uyên Ương (MỚI)",
@@ -364,7 +360,6 @@
         notes: "Ghi chú: Đong trà bằng ca định lượng rồi rót vào ly PP. Thức uống không thể cho nhiều đá. Có Trân châu Đường Đen, kem béo giảm 10cc (còn 30cc), ra món lắc nhẹ.",
         hack: "💡 MẸO UYÊN ƯƠNG: 40cc kem béo + 200ml Bí Đao + 110ml Hồng Trà (100%: 110ml ngọt; 70%: 60ml ngọt / 50ml lạt). CÓ TCĐĐ GIẢM 10CC KEM BÉO & LẮC NHẸ!"
       },
-
       // 2. TRÀ ĐƠN
       {
         id: "tra_don",
@@ -396,7 +391,6 @@
         notes: "Hồng trà vải thiều và Trà bí đao CỐ ĐỊNH 100% ĐƯỜNG.",
         hack: "💡 MẸO VẠCH LY PP: M là 500-350-200. L là 700-500-300. Ca ít đá: M là 350ml, L là 500ml!"
       },
-
       // 3. HỒNG TRÀ KEM TƯƠI
       {
         id: "hong_tra_kem",
@@ -421,7 +415,6 @@
         notes: "Topping chuẩn là 1 viên kem vani 60g múc lên bề mặt ly, không lắc.",
         hack: "💡 MẸO: Trà y hệt Trà Đơn Ly M. Chỉ cần múc 1 viên kem vani 60g lên trên rồi đậy nắp!"
       },
-
       // 4. TRÀ CHANH
       {
         id: "tra_chanh",
@@ -455,7 +448,6 @@
         notes: "Hồng trà chanh vải thiều và Bí đao chanh CỐ ĐỊNH 100% ĐƯỜNG.",
         hack: "💡 MẸO CHANH & ĐƯỜNG: Ly M là '20 - 10'. Ly L là '25 - 15'. Cả 2 size đều 2 lát chanh!"
       },
-
       // 5. TRÀ SỮA ĐÀI LOAN / Ô LONG
       {
         id: "tra_sua",
@@ -487,7 +479,6 @@
         notes: "Trà sữa vải & trà sữa bí đao cố định 100% đường.",
         hack: "💡 MẸO KEM BÉO: Ly M = 40cc, Ly L = 60cc. Tổng cốt trà ít đá: M = 300ml, L = 450ml!"
       },
-
       // 6. TRÀ SỮA TRÂN CHÂU ĐƯỜNG ĐEN
       {
         id: "ts_tcdd",
@@ -520,7 +511,6 @@
         notes: "Dùng Hồng Trà Đài Loan. Có TCĐĐ nên kem béo giảm 10cc (Ly M: 30cc, Ly L: 50cc). Không lắc!",
         hack: "💡 MẸO: Trà sữa thường nhưng KEM BÉO GIẢM 10cc (30cc / 50cc) và KHÔNG LẮC LY!"
       },
-
       // 7. SỮA TƯƠI TRÂN CHÂU ĐƯỜNG ĐEN
       {
         id: "st_tcdd",
@@ -549,7 +539,6 @@
         notes: "KHÔNG DÙNG TRÀ. Bẫy: Nhiều đá thì sữa Ly M giảm còn 200ml, Ly L giảm còn 300ml!",
         hack: "💡 MẸO ĐƯỜNG: Ly M là 20-10-0cc. Ly L là 30-15-0cc. Sữa đá thường: 300ml (M) / 360ml (L)!"
       },
-
       // 8. CÀ PHÊ SỮA
       {
         id: "ca_phe_sua",
@@ -572,7 +561,6 @@
         notes: "Giá 34k (VIP 31k). Cà phê đong bằng ca. Thức uống không thể cho nhiều đá. Không lắc.",
         hack: "💡 MẸO '300 - 40 - 40 - 20': 300ml cafe, 40 sữa đặc, 40 kem béo, 20 đường. CẤM NHIỀU ĐÁ!"
       },
-
       // 9. CÀ PHÊ KEM SỮA TƯƠI
       {
         id: "ca_phe_kem",
@@ -594,8 +582,7 @@
         notes: "Giá 37k (VIP 34k). Cà phê 200ml đong ca. Thức uống không thể cho nhiều đá. Múc kem lên trên rồi đậy nắp.",
         hack: "💡 MẸO: 120ml sữa + 30cc đường khuấy trước -> đá -> 200ml cafe -> 1 viên kem vani 60g!"
       },
-
-      // 10. BÁT BẢO NGÔ GIA (CÔNG THỨC MỚI)
+      // 10. BÁT BẢO NGÔ GIA
       {
         id: "bat_bao",
         name: "Bát Bảo Ngô Gia (Công thức mới 2025)",
@@ -619,7 +606,6 @@
         notes: "Công thức chuẩn Bát bảo vị ngọt mới 2025: Dùng Bánh vuông đường đen (25g) & Trân châu củ năng (25g). Giảm tối đa 50% đường.",
         hack: "💡 MẸO 7 TOPPING BÁT BẢO: TCĐĐ 60g | Dừa 40g, Sương sáo 40g | Bánh vuông 25g, TC củ năng 25g, Sen 25g | 3Q trắng 20g!"
       },
-
       // 11. TRÀ SỮA KHOAI MÔN NGHIỀN
       {
         id: "ts_khoai_mon",
@@ -646,7 +632,6 @@
         notes: "CẤM NHIỀU ĐÁ. Có trân châu đường đen kem béo giảm 10cc (còn 30cc).",
         hack: "💡 MẸO: 1.5 viên khoai (120g) + 40cc kem béo + 300ml trà. Đủ 5 mức đường. CẤM NHIỀU ĐÁ!"
       },
-
       // 12. SỮA TƯƠI KHOAI MÔN NGHIỀN
       {
         id: "st_khoai_mon",
@@ -670,7 +655,6 @@
         notes: "KHÔNG CÓ TRÀ. Chỉ có 3 mức đường (100% - 50% - 0%). Không để được nhiều đá.",
         hack: "💡 MẸO: 1.5 viên khoai (120g) + 300ml sữa. Đường y chang Sữa tươi TCĐĐ (20cc - 10cc - 0cc)!"
       },
-
       // 13. TRÀ SỮA SOCOLA
       {
         id: "ts_socola",
@@ -704,7 +688,6 @@
         notes: "Dùng Hồng Trà Đài Loan. LƯU Ý: Thêm TCĐĐ thì kem béo GIẢM 10cc (M: 30cc, L: 50cc).",
         hack: "💡 MẸO KEM & SOCOLA: M = 40 kem + 30 sốt. L = 60 kem + 50 sốt. Trà: 300ml (M) / 400ml (L)!"
       },
-
       // 14. HỒNG TRÀ LATTE
       {
         id: "latte_hong_tra",
@@ -737,7 +720,6 @@
         notes: "Bí đao & Vải thiều latte giảm tối đa 70% đường. TCĐĐ Latte: thêm 2 vá TCĐĐ (120g) tráng ly.",
         hack: "💡 MẸO LATTE: Sữa 120ml (M) / 150ml (L). Trà 250ml (M) / 350ml (L). Đường 100%: 5cc (M) / 10cc (L)!"
       },
-
       // 15. TRÀ KEM CHEESE
       {
         id: "kem_cheese",
@@ -760,7 +742,6 @@
         notes: "KHÔNG DÙNG BỘT ỚT CHANH. CẤM: Không thể không cho đá và không thể cho nhiều đá!",
         hack: "💡 MẸO KEM CHEESE: 350ml trà + 60g kem cheese. 3 mức (100-50-0). CẤM KHÔNG ĐÁ & NHIỀU ĐÁ!"
       },
-
       // 16. MÀU HỒNG LÃNG MẠN (ỔI HỒNG)
       {
         id: "oi_hong",
@@ -786,7 +767,6 @@
         notes: "LƯU Ý: Món này pha bằng NƯỚC LỌC, tuyệt đối KHÔNG dùng cốt trà!",
         hack: "💡 MẸO ĐƯỜNG ỔI HỒNG: 70cc ổi, 10cc chanh, 1 lát chanh. NƯỚC LỌC. Đường: 60 - 45 - 30 - 20 - 0ml!"
       },
-
       // 17. Ô LONG ĐÀO
       {
         id: "o_long_dao",
@@ -812,7 +792,6 @@
         notes: "Áp dụng cho Hồng trà đào, Trà xanh đào, Ô long đào. Chỉ có ly M.",
         hack: "💡 MẸO ĐÀO: 5 miếng đào (25g) + 20cc nước đào + 1 vá thạch đào (45g). Cốt trà tổng 300ml!"
       },
-
       // 18. Ô LONG NHO
       {
         id: "o_long_nho",
@@ -839,7 +818,6 @@
         notes: "Chỉ có ly M. Dùng 1 vá mứt nho (50g) và dùng chày dầm ở mức vừa phải.",
         hack: "💡 MẸO NHO: 1 vá mứt nho (50g dầm vừa) + 30cc sốt nho. Trà Ô long 300ml. Nhớ lắc đều!"
       },
-
       // 19. HỒNG TRÀ BÍ ĐAO (MIX 6:4)
       {
         id: "hong_tra_bi_dao",
@@ -867,7 +845,6 @@
         notes: "Tỉ lệ 6:4 (Bí đao 6, Hồng trà 4). Giảm tối đa 50% đường.",
         hack: "💡 MẸO 6:4: Ly M = 210ml Bí Đao + 140ml Hồng Trà. Ly L = 300ml Bí Đao + 200ml Hồng Trà!"
       },
-
       // 20. TRÀ XANH BÍ ĐAO (MIX 5:5)
       {
         id: "tra_xanh_bi_dao",
@@ -895,7 +872,6 @@
         notes: "Tỉ lệ 5:5 (Bằng nhau). Giảm tối đa 50% đường.",
         hack: "💡 MẸO 5:5: Chia đôi bằng nhau! Ly M = 175/175ml. Ly L = 250/250ml!"
       },
-
       // 21. TRÀ Ô LONG BÍ ĐAO
       {
         id: "tra_olong_bidao",
@@ -919,7 +895,6 @@
         notes: "Có sẵn 1 vá thủy tinh củ năng (40g). Giảm tối đa 50% đường.",
         hack: "💡 MẸO: Trà y chang Trà Xanh Bí Đao M (175/175ml) nhưng có thêm 1 vá Củ Năng (40g)!"
       },
-
       // 22. TRÀ XÍ MUỘI NGÔ GIA
       {
         id: "xi_muoi_ngogia",
@@ -944,8 +919,7 @@
         notes: "Cố định 100% độ ngọt. Topping: 2 vá hạt é + 1 vá thạch Aiyu.",
         hack: "💡 MẸO: 2 É (60g) + 1 Aiyu (40g). Trà xí muội: 300ml (M) / 400ml (L). Cố định đường!"
       },
-
-      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX (ĐÃ ĐỔI: XÍ MUỘI CHO TRƯỚC BÍ ĐAO)
+      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX (XÍ MUỘI CHO TRƯỚC BÍ ĐAO)
       {
         id: "xi_muoi_bidao",
         name: "Trà Xí Muội Bí Đao (Mix)",
@@ -969,7 +943,6 @@
         notes: "Cố định 100% độ ngọt. Quy trình chuẩn: Rót Trà Xí Muội trước rồi mới rót Trà Bí Đao. CẤM: Thức uống không thể cho nhiều đá.",
         hack: "💡 MẸO: XÍ MUỘI CHO TRƯỚC, BÍ ĐAO CHO SAU! Tỉ lệ 5:5 đều nhau! M = 150/150ml. L = 200/200ml. CẤM NHIỀU ĐÁ!"
       },
-
       // 24. TRÀ XÍ MUỘI Ô LONG MIX
       {
         id: "xi_muoi_olong",
@@ -998,7 +971,6 @@
         notes: "Giảm tối đa 50% đường. CẤM: Thức uống không thể cho nhiều đá.",
         hack: "💡 MẸO: Xí muội cố định 150ml (M) / 200ml (L). Giảm đường thì giảm ở Trà Ô Long. CẤM NHIỀU ĐÁ!"
       },
-
       // 25. TRÂN CHÂU ĐƯỜNG ĐEN LATTE
       {
         id: "latte_tcdd",
@@ -1031,7 +1003,6 @@
         notes: "Dùng Hồng Trà Đài Loan. Tráng ly 2 vá TCĐĐ (120g).",
         hack: "💡 MẸO: Công thức y hệt Hồng Trà Latte, chỉ thêm bước tráng ly 2 vá TCĐĐ (120g)!"
       },
-
       // 26. BÍ ĐAO LATTE / VẢI THIỀU LATTE
       {
         id: "latte_bi_dao",
@@ -1057,7 +1028,6 @@
         notes: "Giảm tối đa 70% đường (chỉ có 2 mức 100% và 70%).",
         hack: "💡 MẸO: Giống Hồng Trà Latte nhưng CHỈ CÓ 2 MỨC ĐƯỜNG (100% và 70%)!"
       },
-
       // 27. TRÀ CHANH VẢI THIỀU / BÍ ĐAO CHANH
       {
         id: "tra_chanh_codinh",
@@ -1085,10 +1055,9 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 2: CÔNG THỨC NẤU TOPPING & NGUYÊN LIỆU (5 MÓN)
+    // PHÂN HỆ 2: CÔNG THỨC NẤU TOPPING & NGUYÊN LIỆU (5 MÓN) - KHÔNG CẦN KÉO THẢ QUY TRÌNH
     // ==========================================
     const COOKING = [
-      // 1. TRÂN CHÂU NGŨ SẮC
       {
         id: "cook_ngu_sac",
         name: "Nấu Trân Châu Ngũ Sắc (🌈)",
@@ -1101,18 +1070,10 @@
           { s: "500g", pp: "[2500]ml Nước", ca: "[100]cc Nước đường" },
           { s: "1kg", pp: "[3500]ml Nước", ca: "[150]cc Nước đường" }
         ],
-        steps: [
-          "Đun sôi nước theo tỷ lệ (2000ml / 2500ml / 3500ml)",
-          "Thả trân châu ngũ sắc vào khuấy đều tránh dính đáy",
-          "Nấu lửa vừa trong 10 phút",
-          "Tắt bếp đậy nắp ủ trong 10 phút",
-          "Vớt ra xả sạch nhớt bằng nước lọc",
-          "Trộn nước đường tương ứng (70cc / 100cc / 150cc)"
-        ],
+        steps: [],
         notes: "Nấu 10p – Ủ 10p. 300g (2000ml/70cc), 500g (2500ml/100cc), 1kg (3500ml/150cc). Quy trình rửa và trộn đường giống Trân châu củ năng.",
         hack: "💡 MẸO NHỚ NGŨ SẮC: Nấu 10p - Ủ 10p. Nước: 2000 -> 2500 -> 3500ml. Đường: 70 -> 100 -> 150cc!"
       },
-      // 2. HẠT É
       {
         id: "cook_hat_e",
         name: "Nấu Hạt É (🌱)",
@@ -1125,17 +1086,10 @@
           { s: "20gr", pp: "[600]ml Nước", ca: "[100]cc Nước đường" },
           { s: "30gr", pp: "[900]ml Nước", ca: "[150]cc Nước đường" }
         ],
-        steps: [
-          "Cân đúng định lượng Hạt É (10gr / 20gr / 30gr)",
-          "Đong lượng nước lọc tương ứng (300ml / 600ml / 900ml)",
-          "Thêm nước đường theo tỷ lệ (50cc / 100cc / 150cc)",
-          "Khuấy đều cho hạt é nở đều",
-          "Bảo quản tủ mát sử dụng trong 2 ngày"
-        ],
+        steps: [],
         notes: "Cứ mỗi 10gr hạt é = +300ml Nước & +50cc Nước đường.",
         hack: "💡 MẸO NHỚ HẠT É: Cứ 10g là 300 nước / 50 đường. 20g là 600 / 100. 30g là 900 / 150!"
       },
-      // 3. TRÂN CHÂU KHOAI MÔN
       {
         id: "cook_khoai_mon",
         name: "Nấu Trân Châu Khoai Môn (🟣)",
@@ -1148,17 +1102,10 @@
           { s: "300gr", pp: "[2500]ml Nước", ca: "[50]cc Nước đường" },
           { s: "500gr", pp: "[2500]ml Nước", ca: "[75]cc Nước đường" }
         ],
-        steps: [
-          "Đun sôi lượng nước theo công thức",
-          "Thả trân châu khoai môn vào khuấy đều",
-          "Nấu đúng 3 phút (KHÔNG Ủ)",
-          "Vớt ra rửa sạch nhớt",
-          "Trộn nước đường tương ứng (25cc / 50cc / 75cc)"
-        ],
+        steps: [],
         notes: "Nấu 3p, KHÔNG ủ. Nước đường tăng +25cc. Bẫy: Cả 300gr và 500gr đều dùng 2500ml nước!",
         hack: "💡 MẸO NHỚ: Nấu 3p - 0 ủ. Đường tăng +25cc (25->50->75). Cả mốc 300g và 500g ĐỀU là 2500ml nước!"
       },
-      // 4. TRÂN CHÂU ĐƯỜNG ĐEN
       {
         id: "cook_duong_den",
         name: "Nấu Trân Châu Đường Đen (🌑)",
@@ -1173,18 +1120,10 @@
           { s: "2000gr", pp: "[5000]ml Nước + [220]cc Đường", ca: "Siro: [300]cc" },
           { s: "2500gr", pp: "[6000]ml Nước + [270]cc Đường", ca: "Siro: [390]cc" }
         ],
-        steps: [
-          "Đun sôi nước theo định lượng",
-          "Cho trân châu vào khuấy đều tránh dính đáy",
-          "Nấu đúng 30 phút",
-          "Tắt bếp ủ đúng 30 phút",
-          "Xả sạch nhớt bằng nước ấm/lọc",
-          "Trộn nước đường và siro đường đen ngâm thấm"
-        ],
+        steps: [],
         notes: "Nấu 30p – Ủ 30p. Nước tăng đều +1000ml. Đường: 60->120 (+60), rồi +50 đều (170->220->270).",
         hack: "💡 MẸO NHỚ ĐƯỜNG ĐEN: Nấu 30p - Ủ 30p. Nước tăng 1000ml (2k->6k). Siro: 90->200->250->300->390cc!"
       },
-      // 5. BÁNH VUÔNG & TC CỦ NĂNG
       {
         id: "cook_banh_vuong",
         name: "Nấu Bánh Vuông & TC Củ Năng (⬛⬜)",
@@ -1197,20 +1136,14 @@
           { s: "500g", pp: "[3000]ml Nước", ca: "[100]cc Nước đường" },
           { s: "1000g", pp: "[4000]ml Nước", ca: "[200]cc Nước đường" }
         ],
-        steps: [
-          "Đun sôi nước theo tỷ lệ (2000ml / 3000ml / 4000ml)",
-          "Thả Bánh vuông đường đen hoặc TC Củ năng vào nấu",
-          "Canh chuẩn thời gian theo hướng dẫn",
-          "Vớt ra xả sạch",
-          "Trộn nước đường (50cc / 100cc / 200cc)"
-        ],
+        steps: [],
         notes: "Mốc 300 – 500 – 1000gram. Nước tăng +1000ml (2000->3000->4000). Nước đường nhân đôi (50->100->200cc).",
         hack: "💡 MẸO NHỚ: Nước tăng +1000ml (2k->3k->4k). Đường NHÂN ĐÔI mỗi mốc (50cc -> 100cc -> 200cc)!"
       }
     ];
 
     // ==========================================
-    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING (TRANG HỌC TOPPING ĐỘC LẬP)
+    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING - KHÔNG CẦN KÉO THẢ QUY TRÌNH
     // ==========================================
     const TOPPING_STUDY = [
       {
@@ -1240,20 +1173,57 @@
           { s: "Đào miếng", pp: "[25]g / [5] miếng", ca: "5 miếng 25g" },
           { s: "Kem cheese", pp: "[60] gram", ca: "60 gram" }
         ],
-        steps: [
-          "Nhóm 2 vá (100g): Ngũ sắc, Bánh vuông, Trân châu củ năng",
-          "Nhóm 2 vá (120g & 80g): TCĐĐ 120g, Pudding trứng 120g, Thạch Đào/Dừa/Sương sáo/Aiyu 80g",
-          "Nhóm 1 vá (50g): Hạt sen, TC khoai môn, Mứt nho 50g",
-          "Nhóm 1 vá (40g & 45g): Thạch Q 40g, TT Củ năng 40g, 3Q Trắng 45g",
-          "Nhóm Hủ & Gram riêng: Pudding ss 200g/hủ, Khoai môn nghiền 80g/120g",
-          "Nhóm Miếng / Viên / Béo: Đào 5 miếng (25g), Kem vani 1 viên (60g), Kem cheese 60g"
-        ],
+        steps: [],
         notes: "Múc đúng số vá và kiểm tra định lượng gram để đảm bảo chuẩn vị và cost món.",
         hack: "💡 MẸO NHỚ: 2 vá 100g = Ngũ sắc, Bánh vuông, Củ năng. 2 vá 120g = TCĐĐ, Pudding trứng. 1 vá 50g = Sen, TC khoai môn, Mứt nho. Pudding ss 200g/hủ!"
       }
     ];
 
-    let currentModule = 'drink'; // 'drink' | 'cook' | 'topping'
+    // ==========================================
+    // PHÂN HỆ 4: HỌC HẠN SỬ DỤNG & BẢO QUẢN (38 MÓN - ĐÃ BỎ SỐ THỨ TỰ TRÙNG LẶP & BỎ KÉO THẢ)
+    // ==========================================
+    const HSD_DATA = [
+      { id: "hsd_1", name: "Miếng Đào (蜜桃果肉)", sizes: "Hộp thiếc lon", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Tủ mát 0-6°", tableM: [{ s: "Chưa khui", pp: "[3 năm] kể từ NSX", ca: "Bảo quản nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản ngăn mát tủ lạnh sau khi khui" }], steps: [], notes: "Chưa khui để được 3 năm, nhưng đã khui chỉ để được 2 ngày trong tủ mát!", hack: "💡 MẸO: Đào lon chưa khui 3 NĂM, khui rồi 2 NGÀY TỦ MÁT!" },
+      { id: "hsd_2", name: "Thạch Aiyu (愛玉凍)", sizes: "Hộp dẻo", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] kể từ NSX", ca: "Bảo quản tủ mát 0-6 độ" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản tủ mát 0-6 độ" }], steps: [], notes: "HSD ngắn: Chưa khui 15 ngày, đã khui 2 ngày.", hack: "💡 MẸO: Thạch Aiyu 15 ngày / 2 ngày (luôn tủ mát 0-6°)!" },
+      { id: "hsd_3", name: "Thạch Sương Sáo (仙草凍)", sizes: "Hộp dẻo", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] kể từ NSX", ca: "Bảo quản tủ mát 0-6 độ" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản tủ mát 0-6 độ" }], steps: [], notes: "Chưa khui 15 ngày, đã khui 2 ngày tủ mát.", hack: "💡 MẸO: Sương sáo giống Aiyu: 15 ngày / 2 ngày tủ mát!" },
+      { id: "hsd_4", name: "Trân Châu 3Q Trắng (原味寒天)", sizes: "Gói túi", action: "[Lạnh sau khui]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Lạnh", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Sau khi khui cần bảo quản ở nhiệt độ lạnh" }], steps: [], notes: "Chưa khui 12 tháng thường, khui rồi 2 ngày lạnh.", hack: "💡 MẸO: 3Q trắng khui rồi chỉ để được 2 ngày lạnh!" },
+      { id: "hsd_5", name: "Hạt Sen (蓮子)", sizes: "Lon thiếc", action: "[Lạnh sau khui]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Tủ mát", tableM: [{ s: "Chưa khui", pp: "[2 năm] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng trực tiếp" }, { s: "Đã khui", pp: "[3-5 ngày] từ khi mở", ca: "Bảo quản lạnh và dùng ngay" }], steps: [], notes: "Chưa khui 2 năm, đã khui 3-5 ngày mát.", hack: "💡 MẸO: Hạt sen 2 năm -> khui ra 3-5 ngày tủ mát!" },
+      { id: "hsd_6", name: "Thạch Dừa Nguyên Vị (原味椰果)", sizes: "Gói / Hộp", action: "[Lạnh sau khui]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Lạnh", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Sau khi khui bảo quản nhiệt độ lạnh" }], steps: [], notes: "Đã khui để được 7 ngày lạnh.", hack: "💡 MẸO: Thạch dừa chưa khui 12 tháng, khui rồi 7 ngày lạnh!" },
+      { id: "hsd_7", name: "Thạch Dừa Hương Đào (蜜桃椰果)", sizes: "Hộp thiếc / Túi", action: "[Lạnh sau khui]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Lạnh", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Sau khi khui bảo quản nhiệt độ lạnh" }], steps: [], notes: "Tương tự thạch dừa nguyên vị: 7 ngày lạnh.", hack: "💡 MẸO: Thạch đào / Thạch dừa khui rồi đều 7 ngày lạnh!" },
+      { id: "hsd_8", name: "Hạt Nổ TT Củ Năng (馬啼爆爆)", sizes: "Hộp thiếc lon", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Bảo quản nhiệt độ lạnh 0-6 độ" }], steps: [], notes: "Đã khui 7 ngày ở 0-6°.", hack: "💡 MẸO: Hạt nổ củ năng khui rồi để tủ mát 0-6° được 7 ngày!" },
+      { id: "hsd_9", name: "Thạch Q Ngô Gia (吳家Q凍)", sizes: "Hộp dẻo", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] từ NSX", ca: "Bảo quản ở nhiệt độ 0-6 độ" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản ở nhiệt độ 0-6 độ" }], steps: [], notes: "Chưa khui 15 ngày mát, khui rồi 2 ngày mát.", hack: "💡 MẸO: Bộ 3 thạch dẻo (Aiyu, Sương sáo, Thạch Q) đều 15 ngày / 2 ngày mát!" },
+      { id: "hsd_10", name: "Siro Đường Đen (黑糖醬)", sizes: "Chai nhựa", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[15 ngày] từ khi mở", ca: "Bảo quản ở nhiệt độ lạnh 0-6 độ" }], steps: [], notes: "Chưa khui 12 tháng thường, khui rồi 15 ngày tủ mát.", hack: "💡 MẸO: Siro đường đen khui rồi để tủ mát 0-6° được 15 ngày!" },
+      { id: "hsd_11", name: "Pudding Trứng (雞蛋布丁)", sizes: "Hủ đóng sẵn", action: "[Dùng liền khi khui]", actionClass: "badge-no-shake", ice: "Bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[10 ngày] từ NSX", ca: "Bảo quản ở nhiệt độ 0-6 độ" }, { s: "Đã khui", pp: "[Dùng liền]", ca: "Khui ra phải sử dụng ngay lập tức" }], steps: [], notes: "Chưa khui 10 ngày tủ mát, ĐÃ KHUI DÙNG LIỀN!", hack: "💡 MẸO: Pudding trứng khui ra là DÙNG LIỀN!" },
+      { id: "hsd_12", name: "Nước Cốt Ổi Hồng (紅心芭樂汁)", sizes: "Túi / Can", action: "[Đông -18° / Mát 0-6°]", actionClass: "badge-dong", ice: "Chưa khui: -18° (24T) hoặc 0-6° (7 ngày)", tableM: [{ s: "Chưa khui", pp: "[24 tháng] (-18°) / [7 ngày] (0-6°)", ca: "Bảo quản -18° hoặc mát 7 ngày từ khi nhận" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ" }], steps: [], notes: "Chưa khui: Tủ đông 24 tháng, tủ mát 7 ngày. Khui rồi: 3 ngày mát.", hack: "💡 MẸO BẪY: Cốt ổi đông 24 tháng, để mát chưa khui 7 ngày, khui rồi chỉ 3 ngày!" },
+      { id: "hsd_13", name: "Nước Cốt Chanh (檸檬汁)", sizes: "Túi / Can", action: "[Đông -18° / Mát 0-6°]", actionClass: "badge-dong", ice: "Chưa khui: -18° (24T) hoặc 0-6° (7 ngày)", tableM: [{ s: "Chưa khui", pp: "[24 tháng] (-18°) / [7 ngày] (0-6°)", ca: "Bảo quản -18° hoặc mát 7 ngày từ khi nhận" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ" }], steps: [], notes: "Giống hệt cốt ổi hồng: Đông 24 tháng, mát 7 ngày, khui 3 ngày.", hack: "💡 MẸO BẪY: Cốt chanh đông 24 tháng, mát chưa khui 7 ngày, khui rồi 3 ngày mát!" },
+      { id: "hsd_14", name: "Mứt Nho (葡萄果肉)", sizes: "Lon thiếc", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[2 năm] từ NSX", ca: "Nhiệt độ thường, tránh ánh nắng" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ (sau khi khui)" }], steps: [], notes: "Chưa khui 2 năm thường, khui rồi 7 ngày mát.", hack: "💡 MẸO: Mứt nho chưa khui 2 năm, khui rồi để tủ mát 7 ngày!" },
+      { id: "hsd_15", name: "Sốt Nho (葡萄醬)", sizes: "Chai nhựa", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nhiệt độ thường, tránh ánh nắng" }, { s: "Đã khui", pp: "[15 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ (sau khi khui)" }], steps: [], notes: "Chưa khui 12 tháng thường, khui rồi 15 ngày mát.", hack: "💡 MẸO: Sốt nho (chai) để được 15 ngày, Mứt nho (lon) để được 7 ngày mát!" },
+      { id: "hsd_16", name: "Sốt Socola (巧克力醬)", sizes: "Chai nhựa", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản nơi khô ráo, thoáng mát", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[30 ngày] từ khi mở", ca: "Nơi khô ráo, thoáng mát" }], steps: [], notes: "Đã khui để nhiệt độ thường được 30 ngày.", hack: "💡 MẸO: Sốt socola & Nước đường đều để nhiệt độ thường được 30 ngày!" },
+      { id: "hsd_17", name: "Sốt Phô Mai (起司醬)", sizes: "Chai nhựa", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản nơi khô ráo, thoáng mát", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[30 ngày] từ khi mở", ca: "Nơi khô ráo, thoáng mát" }], steps: [], notes: "Chưa khui 12 tháng, khui rồi 30 ngày thường.", hack: "💡 MẸO: Sốt phô mai khui rồi để thường được 30 ngày!" },
+      { id: "hsd_18", name: "Kem Vani (香草冰淇淋)", sizes: "Hộp kem", action: "[Tủ đông -18 đến -20°]", actionClass: "badge-dong", ice: "Bảo quản ở nhiệt độ -18 đến -20 độ", tableM: [{ s: "Chưa khui", pp: "[6 tháng] từ NSX", ca: "Bảo quản ở -18 đến -20 độ" }, { s: "Đã khui", pp: "[30 ngày] từ khi mở", ca: "Bảo quản ở -18 đến -20 độ" }], steps: [], notes: "Luôn bảo quản ở -18 đến -20°. Khui rồi dùng 30 ngày.", hack: "💡 MẸO: Kem vani luôn ở TỦ ĐÔNG: Chưa khui 6 tháng, khui rồi 30 ngày!" },
+      { id: "hsd_19", name: "Khoai Môn Nghiền (球芋泥)", sizes: "Hộp tròn", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] từ NSX", ca: "Bảo quản ở 0-6 độ" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ" }], steps: [], notes: "Chưa khui 15 ngày, khui rồi 3 ngày mát.", hack: "💡 MẸO: Khoai môn nghiền khui ra chỉ để được 3 ngày mát!" },
+      { id: "hsd_20", name: "Hạt É (克奇亞籽)", sizes: "Túi hạt khô", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản ở nhiệt độ thường", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Bảo quản nhiệt độ thường" }, { s: "Đã khui", pp: "[30 ngày] từ khi mở", ca: "Bảo quản nhiệt độ thường (hạt khô)" }], steps: [], notes: "Hạt é khô chưa khui 12T, khui rồi 30 ngày thường. (Đã nấu chín để tủ mát 2 ngày).", hack: "💡 MẸO: Hạt é khô khui rồi để thường 30 ngày; Nấu chín để mát 2 ngày!" },
+      { id: "hsd_21", name: "Muối Hồng (玫瑰鹽)", sizes: "Hũ nhựa", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Nhiệt độ thường, tránh ẩm ướt", tableM: [{ s: "Chưa khui", pp: "[5 năm] từ NSX", ca: "Bảo quản nhiệt độ thường" }, { s: "Đã khui", pp: "[6 tháng] sau khi mở", ca: "Bảo quản kín khí, tránh môi trường ẩm ướt" }], steps: [], notes: "Chưa khui 5 năm, khui rồi 6 tháng thường kín khí.", hack: "💡 MẸO: Muối hồng chưa khui 5 NĂM, khui rồi 6 THÁNG!" },
+      { id: "hsd_22", name: "Nước Đường (果糖)", sizes: "Can / Túi", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản nơi khô ráo, thoáng mát", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[30 ngày] từ khi mở", ca: "Nơi khô ráo, thoáng mát" }], steps: [], notes: "Chưa khui 12 tháng, khui rồi 30 ngày thường.", hack: "💡 MẸO: Nước đường khui rồi để nhiệt độ thường được 30 ngày!" },
+      { id: "hsd_23", name: "Trân Châu Đường Đen (黑糖珍珠)", sizes: "Túi hạt sống", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản nơi khô ráo, thoáng mát", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Nơi khô ráo, thoáng mát (hạt sống)" }], steps: [], notes: "Hạt trân châu sống đã khui bảo quản khô ráo 7 ngày.", hack: "💡 MẸO: Hạt TC đường đen sống khui rồi để thường được 7 ngày!" },
+      { id: "hsd_24", name: "Trân Châu Ngũ Sắc (五色珍珠)", sizes: "Túi hạt sống", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản nơi khô ráo, thoáng mát", tableM: [{ s: "Chưa khui", pp: "[6 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Nơi khô ráo, thoáng mát (hạt sống)" }], steps: [], notes: "Chưa khui 6 tháng, đã khui chỉ 3 ngày thường.", hack: "💡 MẸO: TC ngũ sắc hạt sống khui rồi chỉ được 3 ngày thường!" },
+      { id: "hsd_25", name: "Trân Châu Khoai Môn (小芋圓)", sizes: "Túi đông lạnh", action: "[Tủ đông -18°]", actionClass: "badge-dong", ice: "Bảo quản ở nhiệt độ -18 độ", tableM: [{ s: "Chưa khui", pp: "[6 tháng] từ NSX", ca: "Bảo quản ở -18 độ" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở -18 độ" }], steps: [], notes: "Luôn bảo quản ở TỦ ĐÔNG -18°. Khui rồi dùng 3 ngày.", hack: "💡 MẸO BẪY: TC khoai môn sống bắt buộc ở TỦ ĐÔNG -18°, khui rồi dùng 3 ngày!" },
+      { id: "hsd_26", name: "Kem Béo Thực Vật (奶精)", sizes: "Hộp giấy", action: "[Đông <-18° / Mát 30N]", actionClass: "badge-dong", ice: "Chưa khui: <-18° (12T) / Mát (30N)", tableM: [{ s: "Chưa khui", pp: "[12 tháng] (<-18°) / [30 ngày] (Mát)", ca: "Tủ đông hoặc 30 ngày từ khi nhận ở tủ mát" }, { s: "Đã khui", pp: "[5-7 ngày] từ khi mở", ca: "Bảo quản lạnh sau khi rã đông" }], steps: [], notes: "CẤM: Không tái cấp đông sản phẩm đã rã đông! Khui rồi để mát 5-7 ngày.", hack: "💡 MẸO: Kem béo đông 12T, mát chưa khui 30N, khui rồi 5-7 ngày mát. CẤM CẤP ĐÔNG LẠI!" },
+      { id: "hsd_27", name: "Kem Béo Vị Sữa (奶油)", sizes: "Hộp giấy", action: "[Dùng liền khi khui]", actionClass: "badge-no-shake", ice: "Chưa khui: <-18° (12T) / Mát (30N)", tableM: [{ s: "Chưa khui", pp: "[12 tháng] (<-18°) / [30 ngày] (Mát)", ca: "Bảo quản nhiệt độ dưới -18 độ" }, { s: "Đã khui", pp: "[Dùng liền]", ca: "Khui ra phải sử dụng ngay, không để lại" }], steps: [], notes: "Chưa khui giống kem béo thực vật, nhưng ĐÃ KHUI PHẢI DÙNG LIỀN!", hack: "💡 MẸO BẪY: Kem béo thực vật khui để 5-7 ngày, nhưng Kem béo VỊ SỮA khui là DÙNG LIỀN!" },
+      { id: "hsd_28", name: "Sữa Tươi (鮮奶)", sizes: "Can / Hộp", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] từ NSX", ca: "Luôn bảo quản ở 0 đến 6 độ" }, { s: "Đã khui", pp: "[1-2 ngày] (tốt nhất là [24h])", ca: "Bảo quản ở 0 đến 6 độ" }], steps: [], notes: "Bẫy kiểm tra thường xuyên: Đã khui 1-2 ngày, tốt nhất là 24h!", hack: "💡 MẸO BẪY SỐ 1: Sữa tươi khui rồi chỉ được 1-2 NGÀY (TỐT NHẤT LÀ 24 GIỜ)!" },
+      { id: "hsd_29", name: "Hồng Trà Đài Loan Có Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Bảo quản nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "Khô ráo, thoáng mát, 0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "Nhiệt độ từ 0 đến 6 độ" }], steps: [], notes: "Tất cả các loại cốt trà đã nấu đều có HSD 6 ngày từ NSX ở 0-6°.", hack: "💡 MẸO: Toàn bộ các loại Trà Ngô Gia đều có HSD là 6 NGÀY KỂ TỪ NSX (0-6°)!" },
+      { id: "hsd_30", name: "Hồng Trà Đài Loan Không Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: Trà lạt / Trà ngọt đều chung HSD 6 ngày từ NSX!" },
+      { id: "hsd_31", name: "Trà Xanh Hoa Nhài Có Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_32", name: "Trà Xanh Hoa Nhài Không Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_33", name: "Trà Bí Đao", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_34", name: "Hồng Trà Vải Thiều", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_35", name: "Ô Long Có Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_36", name: "Ô Long Không Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_37", name: "Trà Xí Muội (吳家酸梅湯)", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
+      { id: "hsd_38", name: "Bánh Cone (冰淇淋卷筒)", sizes: "Thùng carton", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản khô ráo, tránh ánh nắng", tableM: [{ s: "Chưa khui", pp: "[3 tháng] từ NSX", ca: "Khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[3 tháng] từ NSX", ca: "Khui ra cần bảo quản kín gió" }], steps: [], notes: "Khui ra bắt buộc phải bảo quản kín gió để bánh luôn giòn.", hack: "💡 MẸO: Bánh cone HSD 3 tháng từ NSX, khui ra phải bảo quản KÍN GIÓ!" }
+    ];
+
+    let currentModule = 'drink'; // 'drink' | 'cook' | 'topping' | 'hsd'
     let currentIdx = 0;
     let isBlindMode = false;
     let isClozeMode = false;
@@ -1264,7 +1234,8 @@
     function getActiveList() {
       if (currentModule === 'drink') return DRINKS;
       if (currentModule === 'cook') return COOKING;
-      return TOPPING_STUDY;
+      if (currentModule === 'topping') return TOPPING_STUDY;
+      return HSD_DATA;
     }
 
     function init() {
@@ -1281,7 +1252,9 @@
       list.forEach((d, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        opt.textContent = `${idx + 1}. ${d.name}`;
+        // Tự động làm sạch nếu tên đã có số sẵn để không bao giờ bị lặp 1. 1.
+        const cleanName = d.name.replace(/^\d+\.\s*/, '');
+        opt.textContent = `${idx + 1}. ${cleanName}`;
         sel.appendChild(opt);
       });
     }
@@ -1301,6 +1274,7 @@
       document.getElementById('tab-module-drink').classList.toggle('active', mod === 'drink');
       document.getElementById('tab-module-cook').classList.toggle('active', mod === 'cook');
       document.getElementById('tab-module-topping').classList.toggle('active', mod === 'topping');
+      document.getElementById('tab-module-hsd').classList.toggle('active', mod === 'hsd');
       renderDropdown();
       loadItemData();
       updateProgress();
@@ -1310,7 +1284,8 @@
       if (!str) return '';
       return str.replace(/\[(.*?)\]/g, (match, p1) => {
         if (isClozeMode) {
-          return `<input type="text" class="cloze-input" data-ans="${p1}" oninput="checkCloze(this)" placeholder="?" autocomplete="off" autocorrect="off">`;
+          const width = Math.max(50, p1.length * 8 + 14);
+          return `<input type="text" class="cloze-input" data-ans="${p1}" oninput="checkCloze(this)" style="width:${width}px;" placeholder="?" autocomplete="off" autocorrect="off">`;
         } else if (isBlindMode) {
           return `<span class="maskable" onclick="this.classList.toggle('revealed')">${p1}</span>`;
         } else {
@@ -1322,8 +1297,10 @@
     function loadItemData() {
       const list = getActiveList();
       const d = list[currentIdx];
-      currentSteps = [...d.steps];
-      selectedStepIdx = null;
+      if (currentModule === 'drink' && d.steps) {
+        currentSteps = [...d.steps];
+        selectedStepIdx = null;
+      }
       renderCard();
     }
 
@@ -1376,20 +1353,51 @@
       let colHeader1 = 'Mức Đường';
       let colHeader2 = 'Ly PP (Đá thường)';
       let colHeader3 = 'Ca (Ít/K.đá)';
+      let blockTitle = 'ĐỊNH LƯỢNG CHI TIẾT (LY M):';
+      let conditionTitle = 'QUY CHUẨN ĐÁ:';
+
       if (currentModule === 'cook') {
         colHeader1 = 'Khối Lượng';
         colHeader2 = 'Lượng Nước Nấu';
         colHeader3 = 'Nước Đường / Siro';
+        blockTitle = 'BẢNG NẤU CHUẨN:';
+        conditionTitle = 'ĐIỀU KIỆN & BẢO QUẢN:';
       } else if (currentModule === 'topping') {
         colHeader1 = 'Tên Topping';
         colHeader2 = 'Định Lượng Chuẩn';
         colHeader3 = 'Ghi Chú Khẩu Phần';
+        blockTitle = 'BẢNG ĐỊNH LƯỢNG TOPPING:';
+        conditionTitle = 'ĐIỀU KIỆN BẢO QUẢN:';
+      } else if (currentModule === 'hsd') {
+        colHeader1 = 'Trạng Thái';
+        colHeader2 = 'Hạn Sử Dụng (HSD)';
+        colHeader3 = 'Cách Bảo Quản Chuẩn';
+        blockTitle = 'HẠN SỬ DỤNG CHI TIẾT:';
+        conditionTitle = 'TIÊU CHUẨN NHIỆT ĐỘ:';
+      }
+
+      // Xóa số thứ tự bị lặp ở tiêu đề thẻ nếu có
+      const cleanTitleName = d.name.replace(/^\d+\.\s*/, '');
+
+      // CHỈ HIỆN KHỐI KÉO THẢ QUY TRÌNH CHO PHÂN HỆ PHA CHẾ
+      let stepsHtml = '';
+      if (currentModule === 'drink' && d.steps && d.steps.length > 0) {
+        stepsHtml = `
+          <div class="section-block">
+            <div class="section-title">
+              <span>QUY TRÌNH (KÉO THẢ / CHẠM ĐỔI VỊ TRÍ):</span>
+              <button onclick="scrambleSteps()" style="background:#e0f2fe; color:var(--primary); border:none; padding:2px 6px; border-radius:5px; font-weight:800; font-size:0.68rem; cursor:pointer;"><i class="fa-solid fa-shuffle"></i> Đảo thứ tự</button>
+            </div>
+            <div class="steps-container" id="steps-box"></div>
+            <div id="seq-feedback-box"></div>
+          </div>
+        `;
       }
 
       display.innerHTML = `
         <div class="sheet-header">
           <div>
-            <div class="sheet-title">${currentIdx + 1}. ${d.name}</div>
+            <div class="sheet-title">${currentIdx + 1}. ${cleanTitleName}</div>
             <div class="sheet-tags">
               <span class="badge ${d.actionClass}">${parseTemplate(d.action)}</span>
               <span class="badge badge-size">${d.sizes}</span>
@@ -1402,7 +1410,7 @@
 
         <!-- MỨC ĐÁ / ĐIỀU KIỆN -->
         <div class="section-block">
-          <div class="section-title"><span>${currentModule === 'cook' ? 'ĐIỀU KIỆN & BẢO QUẢN:' : currentModule === 'topping' ? 'ĐIỀU KIỆN BẢO QUẢN:' : 'QUY CHUẨN ĐÁ:'}</span></div>
+          <div class="section-title"><span>${conditionTitle}</span></div>
           <div style="font-size:0.78rem; line-height:1.45; color:#334155; font-weight:700;">
             ${parseTemplate(d.ice)}
           </div>
@@ -1410,7 +1418,7 @@
 
         <!-- BẢNG ĐỊNH LƯỢNG M -->
         <div class="section-block">
-          <div class="section-title"><span>${currentModule === 'cook' ? 'BẢNG NẤU CHUẨN:' : currentModule === 'topping' ? 'BẢNG ĐỊNH LƯỢNG TOPPING:' : (d.tableL ? 'LY M (700cc)' : 'ĐỊNH LƯỢNG CHI TIẾT (LY M):')}</span></div>
+          <div class="section-title"><span>${blockTitle}</span></div>
           <div class="table-wrap">
             <table>
               <thead><tr><th>${colHeader1}</th><th>${colHeader2}</th><th>${colHeader3}</th></tr></thead>
@@ -1422,22 +1430,17 @@
         <!-- BẢNG ĐỊNH LƯỢNG L NẾU CÓ -->
         ${tableLHtml}
 
-        <!-- QUY TRÌNH KÉO THẢ / CHẠM ĐỔI VỊ TRÍ HỌC THUỘC -->
-        <div class="section-block">
-          <div class="section-title">
-            <span>${currentModule === 'topping' ? 'PHÂN NHÓM GHI NHỚ (KÉO THẢ/ĐỔI VỊ TRÍ):' : 'QUY TRÌNH (KÉO THẢ / CHẠM ĐỔI VỊ TRÍ):'}</span>
-            <button onclick="scrambleSteps()" style="background:#e0f2fe; color:var(--primary); border:none; padding:2px 6px; border-radius:5px; font-weight:800; font-size:0.68rem; cursor:pointer;"><i class="fa-solid fa-shuffle"></i> Đảo thứ tự</button>
-          </div>
-          <div class="steps-container" id="steps-box"></div>
-          <div id="seq-feedback-box"></div>
-        </div>
+        <!-- KHỐI QUY TRÌNH CHỈ XUẤT HIỆN Ở PHA CHẾ -->
+        ${stepsHtml}
 
         <!-- LƯU Ý & MẸO NHỚ -->
         ${d.notes ? `<div class="note-box"><i class="fa-solid fa-triangle-exclamation"></i> ${d.notes}</div>` : ''}
         <div class="hack-box">${d.hack}</div>
       `;
 
-      renderStepsList();
+      if (currentModule === 'drink' && d.steps && d.steps.length > 0) {
+        renderStepsList();
+      }
 
       if (isClozeMode) updateClozeScore();
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -1445,6 +1448,7 @@
 
     function renderStepsList() {
       const box = document.getElementById('steps-box');
+      if (!box) return;
       const list = getActiveList();
       const d = list[currentIdx];
       let html = '';
@@ -1476,10 +1480,12 @@
       box.innerHTML = html;
 
       const fb = document.getElementById('seq-feedback-box');
-      if (isCorrectOrder) {
-        fb.innerHTML = `<div class="seq-feedback seq-correct"><i class="fa-solid fa-circle-check"></i> CHUẨN XÁC 100%! ĐÃ ĐÚNG THỨ TỰ!</div>`;
-      } else {
-        fb.innerHTML = `<div class="seq-feedback seq-scrambled"><i class="fa-solid fa-hand-pointer"></i> Chạm 2 bước bất kỳ để đổi chỗ (hoặc bấm ▲/▼) để xếp đúng!</div>`;
+      if (fb) {
+        if (isCorrectOrder) {
+          fb.innerHTML = `<div class="seq-feedback seq-correct"><i class="fa-solid fa-circle-check"></i> CHUẨN XÁC 100%! ĐÃ ĐÚNG THỨ TỰ!</div>`;
+        } else {
+          fb.innerHTML = `<div class="seq-feedback seq-scrambled"><i class="fa-solid fa-hand-pointer"></i> Chạm 2 bước bất kỳ để đổi chỗ (hoặc bấm ▲/▼) để xếp đúng!</div>`;
+        }
       }
     }
 
