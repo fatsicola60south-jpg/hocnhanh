@@ -253,7 +253,7 @@
         <i class="fa-solid fa-boxes-stacked"></i> <span>Topping</span>
       </button>
       <button class="module-tab" id="tab-module-hsd" onclick="switchModule('hsd')">
-        <i class="fa-solid fa-clock-rotate-left"></i> <span>HSD (38)</span>
+        <i class="fa-solid fa-clock-rotate-left"></i> <span>HSD (39)</span>
       </button>
     </div>
 
@@ -335,7 +335,7 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 1: KHO CÔNG THỨC PHA CHẾ (27 MÓN) - DUY NHẤT CÓ QUY TRÌNH KÉO THẢ
+    // PHÂN HỆ 1: KHO CÔNG THỨC PHA CHẾ (27 MÓN)
     // ==========================================
     const DRINKS = [
       // 1. TRÀ SỮA UYÊN ƯƠNG
@@ -919,7 +919,7 @@
         notes: "Cố định 100% độ ngọt. Topping: 2 vá hạt é + 1 vá thạch Aiyu.",
         hack: "💡 MẸO: 2 É (60g) + 1 Aiyu (40g). Trà xí muội: 300ml (M) / 400ml (L). Cố định đường!"
       },
-      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX (XÍ MUỘI CHO TRƯỚC BÍ ĐAO)
+      // 23. TRÀ XÍ MUỘI BÍ ĐAO MIX
       {
         id: "xi_muoi_bidao",
         name: "Trà Xí Muội Bí Đao (Mix)",
@@ -1055,7 +1055,7 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 2: CÔNG THỨC NẤU TOPPING & NGUYÊN LIỆU (5 MÓN) - KHÔNG CẦN KÉO THẢ QUY TRÌNH
+    // PHÂN HỆ 2: CÔNG THỨC NẤU TOPPING (5 MÓN) - BỎ KÉO THẢ QUY TRÌNH
     // ==========================================
     const COOKING = [
       {
@@ -1143,7 +1143,7 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING - KHÔNG CẦN KÉO THẢ QUY TRÌNH
+    // PHÂN HỆ 3: HỌC THUỘC ĐỊNH LƯỢNG TOPPING - BỎ KÉO THẢ QUY TRÌNH
     // ==========================================
     const TOPPING_STUDY = [
       {
@@ -1180,7 +1180,7 @@
     ];
 
     // ==========================================
-    // PHÂN HỆ 4: HỌC HẠN SỬ DỤNG & BẢO QUẢN (38 MÓN - ĐÃ BỎ SỐ THỨ TỰ TRÙNG LẶP & BỎ KÉO THẢ)
+    // PHÂN HỆ 4: HỌC HẠN SỬ DỤNG & BẢO QUẢN (39 MÓN - ĐÃ FIX PUDDING & THÊM SỮA ĐẶC NSPN XANH LÁ)
     // ==========================================
     const HSD_DATA = [
       { id: "hsd_1", name: "Miếng Đào (蜜桃果肉)", sizes: "Hộp thiếc lon", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: Tủ mát 0-6°", tableM: [{ s: "Chưa khui", pp: "[3 năm] kể từ NSX", ca: "Bảo quản nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản ngăn mát tủ lạnh sau khi khui" }], steps: [], notes: "Chưa khui để được 3 năm, nhưng đã khui chỉ để được 2 ngày trong tủ mát!", hack: "💡 MẸO: Đào lon chưa khui 3 NĂM, khui rồi 2 NGÀY TỦ MÁT!" },
@@ -1193,7 +1193,7 @@
       { id: "hsd_8", name: "Hạt Nổ TT Củ Năng (馬啼爆爆)", sizes: "Hộp thiếc lon", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Bảo quản nhiệt độ lạnh 0-6 độ" }], steps: [], notes: "Đã khui 7 ngày ở 0-6°.", hack: "💡 MẸO: Hạt nổ củ năng khui rồi để tủ mát 0-6° được 7 ngày!" },
       { id: "hsd_9", name: "Thạch Q Ngô Gia (吳家Q凍)", sizes: "Hộp dẻo", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] từ NSX", ca: "Bảo quản ở nhiệt độ 0-6 độ" }, { s: "Đã khui", pp: "[2 ngày] từ khi mở", ca: "Bảo quản ở nhiệt độ 0-6 độ" }], steps: [], notes: "Chưa khui 15 ngày mát, khui rồi 2 ngày mát.", hack: "💡 MẸO: Bộ 3 thạch dẻo (Aiyu, Sương sáo, Thạch Q) đều 15 ngày / 2 ngày mát!" },
       { id: "hsd_10", name: "Siro Đường Đen (黑糖醬)", sizes: "Chai nhựa", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[12 tháng] từ NSX", ca: "Nơi khô ráo, tránh ánh nắng" }, { s: "Đã khui", pp: "[15 ngày] từ khi mở", ca: "Bảo quản ở nhiệt độ lạnh 0-6 độ" }], steps: [], notes: "Chưa khui 12 tháng thường, khui rồi 15 ngày tủ mát.", hack: "💡 MẸO: Siro đường đen khui rồi để tủ mát 0-6° được 15 ngày!" },
-      { id: "hsd_11", name: "Pudding Trứng (雞蛋布丁)", sizes: "Hủ đóng sẵn", action: "[Dùng liền khi khui]", actionClass: "badge-no-shake", ice: "Bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[10 ngày] từ NSX", ca: "Bảo quản ở nhiệt độ 0-6 độ" }, { s: "Đã khui", pp: "[Dùng liền]", ca: "Khui ra phải sử dụng ngay lập tức" }], steps: [], notes: "Chưa khui 10 ngày tủ mát, ĐÃ KHUI DÙNG LIỀN!", hack: "💡 MẸO: Pudding trứng khui ra là DÙNG LIỀN!" },
+      { id: "hsd_11", name: "Pudding Trứng (雞蛋布丁)", sizes: "Hủ đóng sẵn", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Luôn bảo quản ở nhiệt độ 0-6 độ", tableM: [{ s: "Chưa khui", pp: "[15 ngày] từ NSX", ca: "Bảo quản ở nhiệt độ 0-6 độ" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở nhiệt độ 0-6 độ" }], steps: [], notes: "CẬP NHẬT: Chưa khui 15 ngày tủ mát, ĐÃ KHUI 3 NGÀY TỦ MÁT!", hack: "💡 MẸO: Pudding trứng chưa khui 15 ngày, khui rồi để tủ mát 3 ngày!" },
       { id: "hsd_12", name: "Nước Cốt Ổi Hồng (紅心芭樂汁)", sizes: "Túi / Can", action: "[Đông -18° / Mát 0-6°]", actionClass: "badge-dong", ice: "Chưa khui: -18° (24T) hoặc 0-6° (7 ngày)", tableM: [{ s: "Chưa khui", pp: "[24 tháng] (-18°) / [7 ngày] (0-6°)", ca: "Bảo quản -18° hoặc mát 7 ngày từ khi nhận" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ" }], steps: [], notes: "Chưa khui: Tủ đông 24 tháng, tủ mát 7 ngày. Khui rồi: 3 ngày mát.", hack: "💡 MẸO BẪY: Cốt ổi đông 24 tháng, để mát chưa khui 7 ngày, khui rồi chỉ 3 ngày!" },
       { id: "hsd_13", name: "Nước Cốt Chanh (檸檬汁)", sizes: "Túi / Can", action: "[Đông -18° / Mát 0-6°]", actionClass: "badge-dong", ice: "Chưa khui: -18° (24T) hoặc 0-6° (7 ngày)", tableM: [{ s: "Chưa khui", pp: "[24 tháng] (-18°) / [7 ngày] (0-6°)", ca: "Bảo quản -18° hoặc mát 7 ngày từ khi nhận" }, { s: "Đã khui", pp: "[3 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ" }], steps: [], notes: "Giống hệt cốt ổi hồng: Đông 24 tháng, mát 7 ngày, khui 3 ngày.", hack: "💡 MẸO BẪY: Cốt chanh đông 24 tháng, mát chưa khui 7 ngày, khui rồi 3 ngày mát!" },
       { id: "hsd_14", name: "Mứt Nho (葡萄果肉)", sizes: "Lon thiếc", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Chưa khui: NĐ thường • Đã khui: 0-6°", tableM: [{ s: "Chưa khui", pp: "[2 năm] từ NSX", ca: "Nhiệt độ thường, tránh ánh nắng" }, { s: "Đã khui", pp: "[7 ngày] từ khi mở", ca: "Bảo quản ở 0-6 độ (sau khi khui)" }], steps: [], notes: "Chưa khui 2 năm thường, khui rồi 7 ngày mát.", hack: "💡 MẸO: Mứt nho chưa khui 2 năm, khui rồi để tủ mát 7 ngày!" },
@@ -1220,7 +1220,9 @@
       { id: "hsd_35", name: "Ô Long Có Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
       { id: "hsd_36", name: "Ô Long Không Đường", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
       { id: "hsd_37", name: "Trà Xí Muội (吳家酸梅湯)", sizes: "Bình ủ trà", action: "[Tủ mát 0-6°]", actionClass: "badge-mat", ice: "Nhiệt độ từ 0 đến 6 độ", tableM: [{ s: "Chưa khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }, { s: "Đã khui", pp: "[6 ngày] kể từ NSX", ca: "0-6 độ" }], steps: [], notes: "HSD 6 ngày kể từ NSX.", hack: "💡 MẸO: 6 ngày kể từ NSX!" },
-      { id: "hsd_38", name: "Bánh Cone (冰淇淋卷筒)", sizes: "Thùng carton", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản khô ráo, tránh ánh nắng", tableM: [{ s: "Chưa khui", pp: "[3 tháng] từ NSX", ca: "Khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[3 tháng] từ NSX", ca: "Khui ra cần bảo quản kín gió" }], steps: [], notes: "Khui ra bắt buộc phải bảo quản kín gió để bánh luôn giòn.", hack: "💡 MẸO: Bánh cone HSD 3 tháng từ NSX, khui ra phải bảo quản KÍN GIÓ!" }
+      { id: "hsd_38", name: "Bánh Cone (冰淇淋卷筒)", sizes: "Thùng carton", action: "[Nhiệt độ thường]", actionClass: "badge-thuong", ice: "Bảo quản khô ráo, tránh ánh nắng", tableM: [{ s: "Chưa khui", pp: "[3 tháng] từ NSX", ca: "Khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[3 tháng] từ NSX", ca: "Khui ra cần bảo quản kín gió" }], steps: [], notes: "Khui ra bắt buộc phải bảo quản kín gió để bánh luôn giòn.", hack: "💡 MẸO: Bánh cone HSD 3 tháng từ NSX, khui ra phải bảo quản KÍN GIÓ!" },
+      // 39. SỮA ĐẶC NGÔI SAO PHƯƠNG NAM XANH LÁ (MỚI BỔ SUNG)
+      { id: "hsd_39", name: "Creamer đặc có đường NSPN xanh lá 1284g (Sữa đặc)", sizes: "Hộp 1.284g (68.000đ)", action: "[Tủ mát 0-6° sau khui]", actionClass: "badge-mat", ice: "Chưa khui: Nơi khô mát • Đã khui: Tủ mát 0 - 6°C", tableM: [{ s: "Chưa khui", pp: "[12 tháng] kể từ NSX", ca: "Bảo quản ở nơi khô ráo, thoáng mát" }, { s: "Đã khui", pp: "[7 ngày] từ ngày khui", ca: "Bảo quản tủ mát 0 - 6°C" }], steps: [], notes: "Sữa đặc Ngôi Sao Phương Nam 1.284g (68k/hộp): Chưa khui 12 tháng nơi khô ráo thoáng mát. ĐÃ KHUI bắt buộc bảo quản tủ mát 0 - 6°C và dùng trong 7 ngày.", hack: "💡 MẸO SỮA ĐẶC: Chưa khui 12 tháng nhiệt độ thường, ĐÃ KHUI BẢO QUẢN TỦ MÁT 0-6°C ĐƯỢC 7 NGÀY!" }
     ];
 
     let currentModule = 'drink'; // 'drink' | 'cook' | 'topping' | 'hsd'
@@ -1252,7 +1254,6 @@
       list.forEach((d, idx) => {
         const opt = document.createElement('option');
         opt.value = idx;
-        // Tự động làm sạch nếu tên đã có số sẵn để không bao giờ bị lặp 1. 1.
         const cleanName = d.name.replace(/^\d+\.\s*/, '');
         opt.textContent = `${idx + 1}. ${cleanName}`;
         sel.appendChild(opt);
@@ -1376,10 +1377,8 @@
         conditionTitle = 'TIÊU CHUẨN NHIỆT ĐỘ:';
       }
 
-      // Xóa số thứ tự bị lặp ở tiêu đề thẻ nếu có
       const cleanTitleName = d.name.replace(/^\d+\.\s*/, '');
 
-      // CHỈ HIỆN KHỐI KÉO THẢ QUY TRÌNH CHO PHÂN HỆ PHA CHẾ
       let stepsHtml = '';
       if (currentModule === 'drink' && d.steps && d.steps.length > 0) {
         stepsHtml = `
